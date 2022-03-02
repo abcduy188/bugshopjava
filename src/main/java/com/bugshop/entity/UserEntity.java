@@ -51,6 +51,9 @@ public class UserEntity{
 	private String Name;
 	@Column
 	private Integer Status;
+	
+	
+	
 	//tao khoa ngoai n-n
 	@ManyToMany(fetch= FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"),

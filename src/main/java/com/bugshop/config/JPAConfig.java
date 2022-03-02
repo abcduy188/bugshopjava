@@ -2,6 +2,7 @@ package com.bugshop.config;
 
 import java.util.Properties;
 
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -15,6 +16,9 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import com.cloudinary.*;
+import com.cloudinary.utils.ObjectUtils;
 
 @Configuration // config
 @EnableJpaRepositories(basePackages = { "com.bugshop.repository" })
@@ -67,5 +71,22 @@ public class JPAConfig {
 		properties.setProperty("hibernate.hbm2ddl.auto", "none");
 		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
+	}
+	
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver() {
+	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+	    multipartResolver.setDefaultEncoding("UTF-8");
+	    multipartResolver.setMaxUploadSize(100000);
+	    return multipartResolver;
+	}
+	@Bean
+	public Cloudinary cloudinary() {
+		Cloudinary c = new Cloudinary(ObjectUtils.asMap(
+				"cloud_name", "abcduy",
+				"api_key", "777696373522314",
+				"api_secret", "YgykCnezvAcBe6xJxh1RtBAWUsw",
+				"secure", true));
+		return c;
 	}
 }

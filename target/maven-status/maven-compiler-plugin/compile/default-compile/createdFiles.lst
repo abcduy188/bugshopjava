@@ -5,10 +5,12 @@ com\bugshop\dao\GenericDAO.class
 com\bugshop\repository\CategoryRepository.class
 com\bugshop\model\CategoryModel.class
 com\bugshop\service\INewService.class
+com\bugshop\dao\upload.class
 com\bugshop\mapper\NewMapper.class
 com\bugshop\dao\impl\AbstractDAO.class
 com\bugshop\paging\PageRequest.class
 com\bugshop\entity\CategoryEntity.class
+com\bugshop\controller\admin\ProductController.class
 com\bugshop\controller\admin\HomeController.class
 com\bugshop\mapper\CategoryMapper.class
 com\bugshop\dao\impl\NewDAO.class

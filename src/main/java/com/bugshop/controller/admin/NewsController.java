@@ -16,11 +16,11 @@ public class NewsController {
 	@Autowired
 	private INewService service;
 	 @RequestMapping(value = "/admin/news/list", method = RequestMethod.GET)
-	   public ModelAndView newsindex(@ModelAttribute("model") NewModel model) {
-	      ModelAndView mav = new ModelAndView("admin/new/index");
+	   public String newsindex(@ModelAttribute("model") NewModel model) {
+	      ModelAndView mav = new ModelAndView();
 	      model.setListResult(service.findAll());
 	      mav.addObject("model", model);
-	      return mav;
+	      return "admin/new/index";
 	   }
 	 @RequestMapping(value = "/admin/news/edit", method = RequestMethod.GET)
 	   public ModelAndView newsedit() {

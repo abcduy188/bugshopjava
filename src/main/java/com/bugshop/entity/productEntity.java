@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -60,6 +61,9 @@ public class productEntity {
 		@LastModifiedBy
 		private String ModifiedBy;
 		
+		//bien tam ko dung trong csdl
+		@Transient
+		private String abc;
 		
 		
 		public CategoryEntity getCategory() {
