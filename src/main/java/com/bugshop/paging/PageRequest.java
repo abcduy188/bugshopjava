@@ -5,12 +5,12 @@ public class PageRequest implements Pageble {
 	
 	private Integer page;
 	private Integer maxPageItem;
-	private Sorter sorter;
 	
-	public PageRequest(Integer page, Integer maxPageItem, Sorter sorter) {
+	
+	public PageRequest(Integer page, Integer maxPageItem) {
 		this.page = page;
 		this.maxPageItem = maxPageItem;
-		this.sorter = sorter;
+		
 	}
 
 	@Override
@@ -31,12 +31,6 @@ public class PageRequest implements Pageble {
 		return this.maxPageItem;
 	}
 
-	@Override
-	public Sorter getSorter() {
-		if (this.sorter != null) {
-			return this.sorter;
-		}
-		return null;
-	}
+	
 
 }

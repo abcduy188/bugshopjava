@@ -1,6 +1,7 @@
 package com.bugshop.controller.admin;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,8 +33,11 @@ public class HomeController {
 	}
 	@PostMapping(value = "/admin/upload")
 	public String add(@ModelAttribute(value = "file") upload upload) throws IOException {
-		this.cloudinary.uploader().upload(upload.getFile().getBytes(), 
-				ObjectUtils.asMap("resource_type", "auto"));
-		return "/admin/upload";
+		Map r = this.cloudinary.uploader().upload(upload.getFile().getBytes(), 
+					ObjectUtils.asMap("resource_type", "auto"));
+		
+		String image =(String) r.get("secure_url");
+	
+		return "/";
 	}
 }

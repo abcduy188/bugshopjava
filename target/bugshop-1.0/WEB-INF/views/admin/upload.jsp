@@ -10,7 +10,8 @@
 </head>
 <body>
 	<h1>Upload demo</h1>
-	<form:form method="post" action="/admin/upload" modelAttribute="image" enctype="multipart/form-data">
+	<c:url value ="/admin/upload" var="action"/>
+	<form:form method="post" action="${action}" modelAttribute="image" enctype="multipart/form-data">
 	
 			<form:input path="file" id="file" type="file"/>
 			<input type="submit" value="theem san pham"/>

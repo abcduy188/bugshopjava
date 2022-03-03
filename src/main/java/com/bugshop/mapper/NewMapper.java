@@ -1,8 +1,8 @@
+
 package com.bugshop.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 
 import com.bugshop.model.NewModel;
 
@@ -29,6 +29,6 @@ public class NewMapper implements RowMapper<NewModel> {
 			return news;
 		} catch (SQLException e) {
 			return null;
-		}	
+		}
 	}
 }

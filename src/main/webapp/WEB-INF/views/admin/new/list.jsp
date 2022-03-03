@@ -69,7 +69,7 @@
 													<c:forEach var="item" items="${model.listResult}">
 														<tr>
 															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
-															<td>${item.title}</td>
+															<td>${model.listResult}</td>
 															<td>${item.shortDescription}</td>
 															<td>
 																<c:url var="editURL" value="/admin-new">

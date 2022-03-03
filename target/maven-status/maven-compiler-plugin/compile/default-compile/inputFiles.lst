@@ -6,7 +6,9 @@ D:\Workspace\Java\bugshop\src\main\java\com\bugshop\config\JPAConfig.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\controller\admin\ProductController.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\dao\impl\NewDAO.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\mapper\RowMapper.java
+D:\Workspace\Java\bugshop\src\main\java\com\bugshop\service\ICategoryService.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\service\INewService.java
+D:\Workspace\Java\bugshop\src\main\java\com\bugshop\controller\admin\CategoryController.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\entity\UserEntity.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\model\CategoryModel.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\repository\UserRepository.java
@@ -19,11 +21,14 @@ D:\Workspace\Java\bugshop\src\main\java\com\bugshop\controller\client\HomeContro
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\model\AbstractModel.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\dao\impl\CategoryDAO.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\paging\Pageble.java
+D:\Workspace\Java\bugshop\src\main\java\com\bugshop\dto\AbstractDTO.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\model\NewModel.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\entity\RoleEntity.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\dao\GenericDAO.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\service\impl\NewService.java
+D:\Workspace\Java\bugshop\src\main\java\com\bugshop\service\impl\CategoryService.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\repository\CategoryRepository.java
+D:\Workspace\Java\bugshop\src\main\java\com\bugshop\dto\CategoryDTO.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\dao\ICategoryDAO.java
-D:\Workspace\Java\bugshop\src\main\java\com\bugshop\paging\Sorter.java
 D:\Workspace\Java\bugshop\src\main\java\com\bugshop\mapper\CategoryMapper.java
+D:\Workspace\Java\bugshop\src\main\java\com\bugshop\converter\CategoryConverter.java
