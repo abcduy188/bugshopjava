@@ -8,7 +8,7 @@
 	<class>com.bugshop.entity.CategoryEntity</class>
 	<class>com.bugshop.entity.RoleEntity</class>
 	<class>com.bugshop.entity.UserEntity</class>
-	<class>com.bugshop.entity.productEntity</class>
+	<class>com.bugshop.entity.ProductEntity</class>
 	</persistence-unit>
 </persistence>
 

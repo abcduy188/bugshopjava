@@ -48,7 +48,7 @@ public class CategoryEntity {
 	@Column(name ="CategoryName", columnDefinition = "nvarchar(255)")
 	private String CategoryName;
 	@OneToMany(mappedBy="category")
-	private List<productEntity> products = new ArrayList<>();
+	private List<ProductEntity> products = new ArrayList<>();
 	
 	@Column(name = "Status",columnDefinition = "boolean default true")
 	private boolean Status;
@@ -117,10 +117,10 @@ public class CategoryEntity {
 	public void setCategoryName(String categoryName) {
 		CategoryName = categoryName;
 	}
-	public List<productEntity> getProducts() {
+	public List<ProductEntity> getProducts() {
 		return products;
 	}
-	public void setProducts(List<productEntity> products) {
+	public void setProducts(List<ProductEntity> products) {
 		this.products = products;
 	}
 	

@@ -1,7 +1,9 @@
 package com.bugshop.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ public class CategoryService implements ICategoryService {
 	
 	public List<CategoryDTO> findAll() {
 		List<CategoryEntity> entities = categoryRepository.findAll();
+		
+		
 		List<CategoryDTO> models = new ArrayList<>();
 		for (CategoryEntity item: entities)
 		{
@@ -30,4 +34,9 @@ public class CategoryService implements ICategoryService {
 		}
 		return models;
 	}
+	public CategoryDTO findByID(Long id) {
+		CategoryDTO dto = categoryConverter.toDto(categoryRepository.findOne((long) 1));
+		return dto;
+	}
+	
 }

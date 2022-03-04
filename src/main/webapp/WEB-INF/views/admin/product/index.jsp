@@ -44,9 +44,8 @@
 					<tbody>
 					<c:forEach var="item" items="${model.listResult}">
 					<tr>
-							<td>${item.title}</td>
-							<td>${item.shortDescription}</td>
-							
+							<td>${item.name}</td>
+							<td>${item.categoryName}</td>
 						</tr>
 					</c:forEach>
 						

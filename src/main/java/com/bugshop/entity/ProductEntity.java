@@ -19,7 +19,7 @@ import javax.persistence.Id;
 
 @Entity
 @Table(name = "product")
-public class productEntity {
+public class ProductEntity {
 		@Id
 		//Auto increment
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,10 +61,30 @@ public class productEntity {
 		@LastModifiedBy
 		private String ModifiedBy;
 		
-		//bien tam ko dung trong csdl
-		@Transient
-		private String abc;
-		
+		public Date getCreateDate() {
+			return CreateDate;
+		}
+		public void setCreateDate(Date createDate) {
+			CreateDate = createDate;
+		}
+		public Date getModifiedDate() {
+			return ModifiedDate;
+		}
+		public void setModifiedDate(Date modifiedDate) {
+			ModifiedDate = modifiedDate;
+		}
+		public String getCreateBy() {
+			return CreateBy;
+		}
+		public void setCreateBy(String createBy) {
+			CreateBy = createBy;
+		}
+		public String getModifiedBy() {
+			return ModifiedBy;
+		}
+		public void setModifiedBy(String modifiedBy) {
+			ModifiedBy = modifiedBy;
+		}
 		
 		public CategoryEntity getCategory() {
 			return category;
