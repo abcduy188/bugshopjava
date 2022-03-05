@@ -45,7 +45,7 @@
 					<c:forEach var="item" items="${model.listResult}">
 					<tr>
 							<td>${item.name}</td>
-							
+							<td>${item.categoryName}</td>
 						</tr>
 					</c:forEach>
 						

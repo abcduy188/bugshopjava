@@ -35,5 +35,13 @@ public class CategoryConverter {
 		result.setModifiedDate(dto.getModifiedDate());
 		return result;
 	}
+	public CategoryEntity toEntity(CategoryEntity result, CategoryDTO dto) {
+		result.setCategoryName(dto.getCategoryName());
+		result.setParentID(dto.getParentID());
+		result.setSeoTitle(dto.getSeoTitle());
+		return result;
+	}
+
+
 }
 
