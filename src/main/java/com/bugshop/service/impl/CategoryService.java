@@ -35,7 +35,7 @@ public class CategoryService implements ICategoryService {
 		return models;
 	}
 	public CategoryDTO findByID(Long id) {
-		CategoryDTO dto = categoryConverter.toDto(categoryRepository.findOne((long) 1));
+		CategoryDTO dto = categoryConverter.toDto(categoryRepository.findOne(id));
 		return dto;
 	}
 	

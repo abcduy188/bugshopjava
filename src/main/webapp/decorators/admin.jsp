@@ -31,34 +31,6 @@
 	href="<c:url value ='/template/admin/vendor/datatables/dataTables.bootstrap4.min.css'/>"
 	rel="stylesheet">
 
-</head>
-
-<body id="page-top">
-	<div id="wrapper">
-
-		<!-- Slidebar -->
-		<%@ include file="/common/admin/slidebar.jsp"%>
-		<!-- end slidebar -->
-		<div id="content-wrapper" class="d-flex flex-column">
-			<div id="content">
-				<!-- header -->
-				<%@ include file="/common/admin/header.jsp"%>
-				<!-- end slidebar -->
-
-				<!--body  -->
-				<dec:body />
-			</div>
-			<!-- footer -->
-			<%@ include file="/common/admin/footer.jsp"%>
-		</div>
-
-
-	</div>
-	<a class="scroll-to-top rounded" href="#page-top"> <i
-		class="fas fa-angle-up"></i>
-	</a>
-
-
 	<!-- Bootstrap core JavaScript-->
 	<script
 		src="<c:url value ='/template/admin/vendor/jquery/jquery.min.js'/>"></script>
@@ -88,6 +60,34 @@
 		src="<c:url value ='/template/admin/vendor/datatables/dataTables.bootstrap4.min.js'/>"></script>
 	<script
 		src="<c:url value ='/template/admin/js/demo/datatables-demo.js'/>"></script>
+
+</head>
+
+<body id="page-top">
+	<div id="wrapper">
+
+		<!-- Slidebar -->
+		<%@ include file="/common/admin/slidebar.jsp"%>
+		<!-- end slidebar -->
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+				<!-- header -->
+				<%@ include file="/common/admin/header.jsp"%>
+				<!-- end slidebar -->
+
+				<!--body  -->
+				<dec:body />
+			</div>
+			<!-- footer -->
+			<%@ include file="/common/admin/footer.jsp"%>
+		</div>
+
+
+	</div>
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
 
 
 </body>
