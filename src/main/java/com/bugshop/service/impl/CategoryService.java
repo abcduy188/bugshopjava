@@ -68,6 +68,17 @@ public class CategoryService implements ICategoryService {
 		categoryConverter.toDto(categoryRepository.save(oldCate));
 	}
 	
+	@Override
+	  public Map<Long, String> findAllbypr() {
+		  Map<Long, String> result= new HashMap<>();
+		  List<CategoryEntity> entities = categoryRepository.findAll();
+		  for( CategoryEntity item: entities)
+		  {
+			  result.put(item.getID(), item.getCategoryName());
+		  }
+		  return result;
+	   }
+	
 	
 
 }

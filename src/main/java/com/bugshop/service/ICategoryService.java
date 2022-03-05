@@ -1,6 +1,7 @@
 package com.bugshop.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bugshop.dto.CategoryDTO;
 
@@ -9,4 +10,5 @@ public interface ICategoryService {
 	CategoryDTO findByID(Long id);
 	void save(CategoryDTO categoryDTO);
 	void delete(Long id);
+	Map<Long, String> findAllbypr();
 }

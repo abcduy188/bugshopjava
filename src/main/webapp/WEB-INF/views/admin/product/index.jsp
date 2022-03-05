@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <div class="container-fluid">
 
@@ -23,33 +23,24 @@
 					cellspacing="0">
 					<thead>
 						<tr>
-							<th></th>
-							<th>Position</th>
-							<th>Office</th>
-							<th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th>
+							
+							<th>Name</th>
+							<th>Category</th>
+							<th>Image</th>
+
 						</tr>
 					</thead>
-					<tfoot>
-						<tr>
-							<th>Name</th>
-							<th>Position</th>
-							<th>Office</th>
-							<th>Age</th>
-							<th>Start date</th>
-							<th>Salary</th>
-						</tr>
-					</tfoot>
+
 					<tbody>
-					<c:forEach var="item" items="${model.listResult}">
-					<tr>
-							<td>${item.name}</td>
-							<td>${item.categoryName}</td>
-						</tr>
-					</c:forEach>
-						
-						
+						<c:forEach var="item" items="${model.listResult}">
+							<tr>
+								<td>${item.name}</td>
+								<td>${item.categoryName}</td>
+								<td><img alt="" src="${item.image}"></td>
+							</tr>
+						</c:forEach>
+
+
 					</tbody>
 				</table>
 			</div>

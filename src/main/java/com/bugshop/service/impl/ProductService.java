@@ -3,12 +3,15 @@ package com.bugshop.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bugshop.converter.CategoryConverter;
 import com.bugshop.converter.ProductConverter;
 import com.bugshop.dto.ProductDTO;
+import com.bugshop.entity.CategoryEntity;
 import com.bugshop.entity.ProductEntity;
 import com.bugshop.repository.CategoryRepository;
 import com.bugshop.repository.ProductRepository;
@@ -41,5 +44,17 @@ public class ProductService implements IProductService {
 			models.add(products);
 		}
 		return models;
+	}
+
+
+	@Override
+	@Transactional
+	public int save(ProductDTO dto) {
+		CategoryEntity category = categoryRepository.findOne(dto.getCategoryId());
+		ProductEntity productEntity = new ProductEntity();
+		productEntity = productConverter.toEntity(dto);
+		productEntity.setCategory(category);
+		productRepository.save(productEntity);
+		return 1;
 	}
 }

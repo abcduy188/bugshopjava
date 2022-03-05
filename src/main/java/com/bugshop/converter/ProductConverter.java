@@ -23,6 +23,7 @@ public class ProductConverter {
 		result.setCreateDate(entity.getCreateDate());
 		result.setModifiedBy(entity.getModifiedBy());
 		result.setModifiedDate(entity.getModifiedDate());
+		result.setCategoryId(entity.getCategory().getID());
 		return result;
 	}
 	

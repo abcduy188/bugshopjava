@@ -1,45 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/common/taglib.jsp"%>
+<c:url var="api" value="/admin/product/create" />
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-body">
-			<div class="card-title">Vertical Form</div>
+			<div class="card-title">Product</div>
 			<hr>
-			<form>
+			<form:form modelAttribute="model" enctype="multipart/form-data"
+				action="${api}">
 				<div class="form-group">
-					<label for="input-1">Name</label> <input type="text"
-						class="form-control" id="input-1" placeholder="Enter Your Name">
+					<label for="input-1">Name: </label>
+					<form:input path="name" type="text" class="form-control"
+						id="title" onkeyup="ChangeToSlug();" />
 				</div>
 				<div class="form-group">
-					<label for="input-2">Email</label> <input type="text"
-						class="form-control" id="input-2"
-						placeholder="Enter Your Email Address">
+					<label for="input-2">seoTitle</label>
+					<form:input type="text" class="form-control" id="slug"
+						path="seoTitle" />
 				</div>
 				<div class="form-group">
-					<label for="input-3">Mobile</label> <input type="text"
-						class="form-control" id="input-3"
-						placeholder="Enter Your Mobile Number">
+					<label for="input-3">Image</label>
+					<form:input path="imagefile" id="imagefile" type="file"
+						cssClass="form-control" />
 				</div>
 				<div class="form-group">
-					<label for="input-4">Password</label> <input type="text"
-						class="form-control" id="input-4" placeholder="Enter Password">
+					<label for="input-1">description: </label>
+					<form:input path="description" type="text" class="form-control" />
 				</div>
 				<div class="form-group">
-					<label for="input-5">Confirm Password</label> <input type="text"
-						class="form-control" id="input-5" placeholder="Confirm Password">
+					<label for="input-1">price: </label>
+					<form:input path="price" type="text" class="form-control" />
 				</div>
-				<div class="form-group py-2">
-					<div class="icheck-material-white">
-						<input type="checkbox" id="user-checkbox1" checked="" /> <label
-							for="user-checkbox1">I Agree Terms & Conditions</label>
-					</div>
+				<div class="form-group">
+					<label for="input-1">promotionPrice: </label>
+					<form:input path="promotionPrice" type="text" class="form-control" />
+				</div>
+				<div class="form-group">
+					<form:select path="categoryId" id="categoryId"
+						style="background: white;">
+						<form:option style="background: white;" value=""
+							label="-- Chọn Thể loại --" />
+						<form:options style="background: white;" items="${categories}" />
+
+					</form:select>
 				</div>
 				<div class="form-group">
 					<button type="submit" class="btn btn-light px-5">
-						<i class="icon-lock"></i> Register
+						<i class="icon-lock"></i> Create
 					</button>
 				</div>
-			</form>
+			</form:form>
 		</div>
 	</div>
 </div>
+<script>
+		
+		
+		//slug
+		function ChangeToSlug() {
+			var title, slug;
+
+			//Lấy text từ thẻ input title
+			title = document.getElementById("title").value;
+
+			//Đổi chữ hoa thành chữ thường
+			slug = title.toLowerCase();
+
+			//Đổi ký tự có dấu thành không dấu
+			slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+			slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+			slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+			slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+			slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+			slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+			slug = slug.replace(/đ/gi, 'd');
+			//Xóa các ký tự đặt biệt
+			slug = slug
+					.replace(
+							/\`|\~|\!|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\”|\:|\;|_/gi,
+							'');
+			//Đổi khoảng trắng thành ký tự gạch ngang
+			slug = slug.replace(/ /gi, "-");
+			//Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+			//Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+			slug = slug.replace(/\-\-\-\-\-/gi, '-');
+			slug = slug.replace(/\-\-\-\-/gi, '-');
+			slug = slug.replace(/\-\-\-/gi, '-');
+			slug = slug.replace(/\-\-/gi, '-');
+			//In slug ra textbox có id “slug”
+			document.getElementById('slug').value = slug;
+		}
+	</script>

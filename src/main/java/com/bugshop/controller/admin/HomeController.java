@@ -36,7 +36,7 @@ public class HomeController {
 	@PostMapping(value = "/admin/upload")
 	public String add(@RequestBody upload upload) throws IOException {
 		byte[] decodeBase64 = Base64.getDecoder().decode(upload.getFile().getBytes());
-		Map r = this.cloudinary.uploader().upload(decodeBase64, 
+		Map r = this.cloudinary.uploader().upload(upload.getFile().getBytes(), 
 					ObjectUtils.asMap("resource_type", "auto"));
 		String image =(String) r.get("secure_url");
 	
