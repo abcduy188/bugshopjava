@@ -6,12 +6,12 @@
 
 	<!-- Page Heading -->
 	<h1 class="h3 mb-2 text-gray-800">Tables</h1>
-	<p class="mb-4">
-		DataTables is a third party plugin that is used to generate the demo
-		table below. For more information about DataTables, please visit the <a
-			target="_blank" href="https://datatables.net">official DataTables
-			documentation</a>.
-	</p>
+	<c:url var="createCate" value="/admin/category/create">
+
+	</c:url>
+	<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
+		title="Cập nhật bài viết" href='${createCate}'><i
+		class="fa fa-pencil-square-o" aria-hidden="true"></i>Thêm danh mục</a>
 
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
@@ -20,27 +20,31 @@
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
-			
+
 				<table class="table table-bordered" id="dataTable" width="100%"
 					cellspacing="0">
 					<thead>
 						<tr>
-						<th>${cate.categoryName}</th>	
+							<th>${cate.categoryName}</th>
 							<th>Name</th>
-							
+
 						</tr>
 					</thead>
-					
+
 					<tbody>
-					<c:forEach var="duy" items="${model.listResult}">
-					<tr>
-							<td>${duy.categoryName}</td>
-							
-							
-						</tr>
-					</c:forEach>
-						
-						
+						<c:forEach var="duy" items="${model.listResult}">
+							<tr>
+								<td>${duy.categoryName}</td>
+								<td><c:url var="updateNewURL" value="/admin/category/edit">
+										<c:param name="id">${duy.iD}</c:param>
+									</c:url> <a class="btn btn-sm btn-primary btn-edit"
+									data-toggle="tooltip" title="Cập nhật bài viết"
+									href='${updateNewURL}'><i class="fa fa-pencil-square-o"
+										aria-hidden="true"></i>Chỉnh sửa </a></td>
+							</tr>
+						</c:forEach>
+
+
 					</tbody>
 				</table>
 			</div>
