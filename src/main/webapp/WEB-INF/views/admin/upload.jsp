@@ -18,7 +18,7 @@
 		<input type="submit" value="theem san pham" />
 	</form:form> --%>
 
-	<form:form id="formSubmit" modelAttribute="image">
+	<form:form id="formSubmit" modelAttribute="image" enctype="multipart/form-data">
 		<form:input path="file" id="file" type="file" />
 		<button type="button" class="btn btn-light px-5" id="submit">
 			<i class="icon-note"></i> Thêm sản phẩm

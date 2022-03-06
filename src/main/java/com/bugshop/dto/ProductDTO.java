@@ -25,7 +25,15 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private MultipartFile imagefile;
 	@Transient
 	private String categoryName;
+	public Long getCategoryId() {
+		return categoryId;
+	}
 
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+	@Transient
+	private Long categoryId;
 
 	public String getCategoryName() {
 		return categoryName;
