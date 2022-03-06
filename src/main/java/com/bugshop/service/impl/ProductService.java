@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.bugshop.converter.CategoryConverter;
 import com.bugshop.converter.ProductConverter;
+import com.bugshop.dto.CategoryDTO;
 import com.bugshop.dto.ProductDTO;
 import com.bugshop.entity.CategoryEntity;
 import com.bugshop.entity.ProductEntity;
@@ -28,17 +29,14 @@ public class ProductService implements IProductService {
 	private ProductRepository productRepository;
 	@Autowired
 	private ProductConverter productConverter;
-	
-	
+
 	public List<ProductDTO> list() {
-		
-		
+
 		List<ProductEntity> entities = productRepository.findAll();
 
 		List<ProductDTO> models = new ArrayList<>();
 		for (ProductEntity item : entities) {
-			
-			
+
 			ProductDTO products = productConverter.toDto(item);
 			products.setCategoryName(item.getCategory().getCategoryName().toString());
 			models.add(products);
@@ -46,15 +44,40 @@ public class ProductService implements IProductService {
 		return models;
 	}
 
+	public ProductDTO findByID(Long id) {
+		ProductDTO dto = productConverter.toDto(productRepository.findOne(id));
+		return dto;
+	}
 
 	@Override
 	@Transactional
 	public int save(ProductDTO dto) {
 		CategoryEntity category = categoryRepository.findOne(dto.getCategoryId());
+
 		ProductEntity productEntity = new ProductEntity();
-		productEntity = productConverter.toEntity(dto);
-		productEntity.setCategory(category);
+		if (dto.getiD() != null) {
+			ProductEntity oldProduct = productRepository.findOne(dto.getiD());
+			oldProduct.setCategory(category);
+			productEntity = productConverter.toEntity(oldProduct, dto);
+		} else {
+			productEntity = productConverter.toEntity(dto);
+			productEntity.setCategory(category);
+		}
+
 		productRepository.save(productEntity);
 		return 1;
 	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {
+		ProductEntity productEntity =productRepository.findOne(id);
+		if(id!= null) {
+			productEntity.setIsDelete(true);
+		}
+		productConverter.toDto(productRepository.save(productEntity));
+		
+	}
+	
+
 }

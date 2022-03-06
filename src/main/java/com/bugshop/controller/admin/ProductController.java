@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -53,8 +54,8 @@ public class ProductController {
 	public RedirectView createCate(@ModelAttribute("model") ProductDTO productDTO) throws IOException {
 
 		byte[] image = productDTO.getImagefile().getBytes();
-		if (image != null) {
-			Map r = this.cloudinary.uploader().upload(productDTO.getImagefile().getBytes(),
+		if (image != null) { 
+			Map r = this.cloudinary.uploader().upload(image,
 					ObjectUtils.asMap("resource_type", "auto"));
 			productDTO.setImage((String) r.get("secure_url"));
 		} else {
@@ -62,6 +63,44 @@ public class ProductController {
 		}
 
 		int result = iProductService.save(productDTO);
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl("/bugshop/admin/product");
+		return redirectView;
+	}
+	
+	@GetMapping(value = "/admin/product/edit")
+	public ModelAndView editproduct(@RequestParam(value = "id", required = false) Long id) {
+		ModelAndView mav = new ModelAndView("admin/product/editProduct");
+		ProductDTO model = new ProductDTO();
+		if (id != null) {
+			model = iProductService.findByID(id);
+		}
+		mav.addObject("categories", iCategoryService.findAllbypr());
+		mav.addObject("model", model);
+		return mav;
+	}
+
+	@PostMapping(value = "/admin/product/edit")
+	public RedirectView editproduct(@ModelAttribute("model") ProductDTO model) throws IOException {
+		
+		
+		byte[] image = model.getImagefile().getBytes();
+		RedirectView redirectView = new RedirectView();
+		if (model.getImagefile().getSize()>0) { 
+			Map r = this.cloudinary.uploader().upload(image,
+					ObjectUtils.asMap("resource_type", "auto"));
+			model.setImage((String) r.get("secure_url"));
+		}
+		iProductService.save(model);
+
+		
+		redirectView.setUrl("/bugshop/admin/product");
+		return redirectView;
+	}
+	@GetMapping(value = "/admin/product/delete")
+	public RedirectView deleteCate(@RequestParam(value = "id", required = false) Long id) {
+
+		iProductService.delete(id);
 		RedirectView redirectView = new RedirectView();
 		redirectView.setUrl("/bugshop/admin/product");
 		return redirectView;

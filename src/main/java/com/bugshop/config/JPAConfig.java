@@ -77,7 +77,7 @@ public class JPAConfig {
 	public CommonsMultipartResolver multipartResolver() {
 	    CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 	    multipartResolver.setDefaultEncoding("UTF-8");
-	    multipartResolver.setMaxUploadSize(100000);
+	    multipartResolver.setMaxUploadSize(500000);
 	    return multipartResolver;
 	}
 	@Bean

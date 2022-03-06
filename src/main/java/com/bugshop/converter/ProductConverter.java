@@ -44,4 +44,22 @@ public class ProductConverter {
 		result.setModifiedDate(dto.getModifiedDate());
 		return result;
 	}
+	
+	public ProductEntity toEntity(ProductEntity result , ProductDTO dto) {
+		result.setName(dto.getName());
+		result.setSeoTitle(dto.getSeoTitle());
+		result.setDescription(dto.getDescription());
+		if(dto.getImage()!= null)
+		{
+			result.setImage(dto.getImage());
+		}
+		result.setPrice(dto.getPrice());
+		result.setPromotionPrice(dto.getPromotionPrice());
+		result.setQuantity(dto.getQuantity());
+		result.setStatus(dto.isStatus());
+		result.setIsDelete(dto.isDelete());
+		result.setModifiedBy(dto.getModifiedBy());
+		result.setModifiedDate(dto.getModifiedDate());
+		return result;
+	}
 }
