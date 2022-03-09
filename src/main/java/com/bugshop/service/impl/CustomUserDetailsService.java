@@ -27,8 +27,10 @@ public class CustomUserDetailsService implements UserDetailsService{
 	
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		UserEntity userEntity = userRepository.findOneByEmailAndStatus(username, SystemConstant.ACTIVE_STATUS);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		
+		//check email+ passworld ngam/ check status
+		UserEntity userEntity = userRepository.findOneByEmailAndStatus(email, SystemConstant.ACTIVE_STATUS);
 		
 		
 		if(userEntity == null)

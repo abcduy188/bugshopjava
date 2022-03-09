@@ -42,7 +42,7 @@ public class RoleEntity{
 	@Column(name ="name", columnDefinition = "nvarchar(255)")
 	private String Name;
 	@Column(name ="role", columnDefinition = "nvarchar(50)")
-	private String Code;
+	private String code;
 	
 	@ManyToMany(mappedBy = "roles")
     private List<UserEntity> users = new ArrayList<>();
@@ -96,11 +96,11 @@ public class RoleEntity{
 	}
 
 	public String getCode() {
-		return Code;
+		return code;
 	}
 
 	public void setCode(String code) {
-		Code = code;
+		this.code = code;
 	}
 
 	public List<UserEntity> getUsers() {

@@ -1,0 +1,56 @@
+package com.bugshop.service.impl;
+
+import java.util.Arrays;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.bugshop.dto.UserDTO;
+import com.bugshop.entity.UserEntity;
+import com.bugshop.repository.RoleRepository;
+import com.bugshop.repository.UserRepository;
+import com.bugshop.service.IUserService;
+
+@Service
+public class UserService implements IUserService {
+	
+	
+	@Autowired 
+	UserRepository userRepository;
+	@Autowired 
+	RoleRepository roleRepository;
+	@Override
+	@Transactional
+	public int register(UserDTO userDTO) {
+		
+		UserEntity entity = userRepository.findOneByEmail(userDTO.getEmail());
+		if(entity != null)
+		{
+			return -1;
+		}
+		
+		UserEntity user = new UserEntity();
+		user.setEmail(userDTO.getEmail());
+		user.setName(userDTO.getName());
+		user.setPassword(encode(userDTO.getPassword()));
+		user.setRoles(Arrays.asList(roleRepository.findByCode("USER")));
+		user.setStatus(1);
+		userRepository.save(user);
+		return 1;
+		
+		
+	}
+	private String encode(String pass)
+	{
+		
+		String bcrypt = new BCryptPasswordEncoder().encode(pass);
+		return bcrypt;
+	}
+	
+		
+}
