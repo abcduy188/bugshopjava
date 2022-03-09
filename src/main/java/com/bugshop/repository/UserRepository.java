@@ -5,5 +5,5 @@ import org.springframework.data.repository.Repository;
 import com.bugshop.entity.UserEntity;
 
 public interface UserRepository extends Repository<UserEntity, Long>{
-
+	UserEntity findOneByEmailAndStatus(String email, int Status);
 }
