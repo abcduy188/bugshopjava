@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form class="form-horizontal" role="form" modelAttribute="model">
+	<form:form class="form-horizontal" role="form" modelAttribute="model" action="${api}">
 		<div class="form-group">
 			<form:input path="categoryName" id="categoryName" name="categoryName"
 				placeholder="Teen danh muc" />

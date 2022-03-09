@@ -17,7 +17,7 @@
 				<div class="form-group">
 					<label for="input-2">seoTitle</label>
 					<form:input type="text" class="form-control" id="slug"
-						path="seoTitle" />
+						path="seoTitle"  disabled/>
 				</div>
 				<div class="form-group">
 					<label for="input-3">Image</label>
