@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ include file="/common/taglib.jsp"%>
+    <c:url value="/" var="admin"/>
 <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -41,7 +42,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href='<c:url value='/admin/news/list'/>'>danh sách</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
                 </div>
             </li>
@@ -51,20 +51,33 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Sản phẩm</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                       
+                        <a class="collapse-item" href="${admin}admin/product">Danh sách sản phẩm</a>
+                        <a class="collapse-item" href="${admin}admin/product/deleted">Sản phẩm đã xóa</a>
+                        <a class="collapse-item" href="${admin}admin/product/create">Thêm sản phẩm</a>
                     </div>
                 </div>
             </li>
-
+			  <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsecate"
+                    aria-expanded="true" aria-controls="collapsecate">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Danh mục</span>
+                </a>
+                <div id="collapsecate" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                       
+                        <a class="collapse-item" href="${admin}admin/category">Danh sách danh mục</a>
+                        <a class="collapse-item" href="${admin}admin/category/create">Thêm sản phẩm</a>
+                    </div>
+                </div>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
