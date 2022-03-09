@@ -6,8 +6,15 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import com.bugshop.dto.MyUser;
+
 public class SecurityUtils {
 
+	
+	public static MyUser getPrincipal() {
+		MyUser myAccount = (MyUser) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+        return myAccount; 
+    }
 	public static List<String> getAuthorities(){
 		List<String> results = new ArrayList<>();
 		
