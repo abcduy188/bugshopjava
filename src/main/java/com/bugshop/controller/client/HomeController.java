@@ -44,9 +44,13 @@ public class HomeController {
 		int i = userService.register(model);
 		if (i == 1)
 		{	
-			return new ModelAndView("login");
+			ModelAndView mav = new ModelAndView("login");
+			mav.addObject("message", "Dang Ky thanh cong!!");
+			return mav ;
 		}
-		return new ModelAndView("register");
+		ModelAndView mav = new ModelAndView("register");
+		mav.addObject("message", "Email da co nguoi su dung");
+		return mav;
 	}
 	 @RequestMapping(value="/thoat", method = RequestMethod.GET)
 	 public ModelAndView Logout(HttpServletRequest request, HttpServletResponse response) {

@@ -25,6 +25,12 @@
 							Không phải người quản trị!!
 					</div>
 				</c:if>
+				
+					<c:if test="${message!=null}">
+					<div class="alert alert-danger">	
+							${message}
+					</div>
+				</c:if>
 					<span class="login100-form-title"> LOGIN </span>
 					<div class="wrap-input100 validate-input"
 						data-validate="Valid email is required">
