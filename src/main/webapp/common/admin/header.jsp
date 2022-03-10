@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import= "com.bugshop.utils.SecurityUtils" %>
 <!-- Topbar -->
 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -165,8 +166,8 @@
 			class="nav-link dropdown-toggle" href="#" id="userDropdown"
 			role="button" data-toggle="dropdown" aria-haspopup="true"
 			aria-expanded="false"> <span
-				class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas
-					McGee</span> <img class="img-profile rounded-circle"
+				class="mr-2 d-none d-lg-inline text-gray-600 small"> <%= SecurityUtils.getPrincipal().getName() %>
+					</span> <img class="img-profile rounded-circle"
 				src="img/undraw_profile.svg">
 		</a> <!-- Dropdown - User Information -->
 			<div
@@ -209,7 +210,7 @@
 				to end your current session.</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="login.html">Logout</a>
+				<a class="btn btn-primary" href="<c:url value='/thoat'/>">Logout</a>
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,6 @@ package com.bugshop.config;
 
 import java.util.Properties;
 
-
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -15,9 +14,12 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import com.cloudinary.*;
+
+import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 
 @Configuration // config
@@ -89,4 +91,6 @@ public class JPAConfig {
 				"secure", true));
 		return c;
 	}
+	
+	
 }

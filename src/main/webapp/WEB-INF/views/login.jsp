@@ -25,10 +25,16 @@
 							Không phải người quản trị!!
 					</div>
 				</c:if>
+				
+					<c:if test="${message!=null}">
+					<div class="alert alert-danger">	
+							${message}
+					</div>
+				</c:if>
 					<span class="login100-form-title"> LOGIN </span>
 					<div class="wrap-input100 validate-input"
 						data-validate="Valid email is required">
-						<input class="input100" type="text" class="form-control" id="userName" name="j_username" placeholder="Tên đăng nhập" required> <span class="focus-input100"></span>
+						<input class="input100" type="text" class="form-control" id="email" name="j_email" placeholder="Email" required> <span class="focus-input100"></span>
 						<span class="symbol-input100"> <i class="fa fa-user-circle"
 							aria-hidden="true"></i>
 						</span>
@@ -47,11 +53,7 @@
 						<a class="txt2" href="<c:url value='/trang-chu' />">
 							Xem sản phẩm không cần đăng nhập</a>
 					</div>
-					<!-- <div class="text-center p-t-136">
-						<a class="txt2" href="#"> Create your Account <i
-							class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div> -->
+				
 				</form>
 			</div>
 		</div>

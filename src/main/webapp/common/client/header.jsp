@@ -1,3 +1,5 @@
+<%@ page import="com.bugshop.utils.SecurityUtils"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="header">
@@ -6,25 +8,55 @@
 			<div class="logo">
 				<a href="index.html">N-AIR</a>
 			</div>
-			<div class="login-bars">
-				<a class="btn btn-default log-bar" href="register.html"
-					role="button">Sign up</a> <a class="btn btn-default log-bar"
-					href="signup.html" role="button">Login</a>
-				<div class="cart box_1">
-					<a href="checkout.html">
-						<h3>
-							<div class="total">
-								<span class="simpleCart_total"></span>(<span
-									id="simpleCart_quantity" class="simpleCart_quantity"></span>)
-							</div>
-						</h3>
-					</a>
-					<p>
-						<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
-					</p>
-					<div class="clearfix"></div>
+			<security:authorize access="isAnonymous()">
+				<div class="login-bars">
+					<a class="btn btn-default log-bar"
+						href="<c:url value='/dang-ky' />" role="button">Sign up</a> <a
+						class="btn btn-default log-bar" href="<c:url value='/dang-nhap' />" role="button">Login</a>
+					<div class="cart box_1">
+						<a href="checkout.html">
+							<h3>
+								<div class="total">
+									<span class="simpleCart_total"></span>(<span
+										id="simpleCart_quantity" class="simpleCart_quantity"></span>)
+								</div>
+							</h3>
+						</a>
+						<p>
+							<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
 				</div>
-			</div>
+
+			</security:authorize>
+
+			<security:authorize access="isAuthenticated()">
+				<div class="login-bars">
+					<a class="btn btn-default log-bar" href="register.html"
+						role="button">Welcome <%=SecurityUtils.getPrincipal().getName()%></a>
+					<a class="btn btn-default log-bar" href="<c:url value='/thoat' />"
+						role="button">Logout</a>
+					<div class="cart box_1">
+						<a href="checkout.html">
+							<h3>
+								<div class="total">
+									<span class="simpleCart_total"></span>(<span
+										id="simpleCart_quantity" class="simpleCart_quantity"></span>)
+								</div>
+							</h3>
+						</a>
+						<p>
+							<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+
+			</security:authorize>
+
+
+
 			<div class="clearfix"></div>
 		</div>
 		<!---menu-----bar--->
