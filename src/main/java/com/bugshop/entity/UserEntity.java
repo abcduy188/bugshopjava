@@ -28,7 +28,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class UserEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ID;
+	private Long id;
 	
 	@Column(name = "CreateDate")
 	@CreatedDate
@@ -45,11 +45,10 @@ public class UserEntity{
 	@Column(name = "ModifiedBy")
 	@LastModifiedBy
 	private String ModifiedBy;
-	@Column(name = "Email", columnDefinition = "nvarchar(255)")
-	@javax.validation.constraints.Email
+	@Column(name = "email", columnDefinition = "nvarchar(255)")
 	private String email;
-	@Column(name = "Password", columnDefinition = "nvarchar(255)")
-	private String Password;
+	@Column(name = "password", columnDefinition = "nvarchar(255)")
+	private String password;
 	@Column(name = "Name", columnDefinition = "nvarchar(255)")
 	private String Name;
 	@Column
@@ -61,8 +60,8 @@ public class UserEntity{
 	
 	//tao khoa ngoai n-n
 	@ManyToMany(fetch= FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"),
-								   inverseJoinColumns = @JoinColumn(name = "roleid"))
+	@JoinTable(name = "roles_user", joinColumns = @JoinColumn(name = "user_id"),
+								   inverseJoinColumns = @JoinColumn(name = "roles_id"))
 	private List<RoleEntity> roles = new ArrayList<>();
 	//
 	
@@ -79,7 +78,7 @@ public class UserEntity{
 		IsDelete = isDelete;
 	}
 	public Long getID() {
-		return ID;
+		return id;
 	}
 	
 	public Date getCreateDate() {
@@ -114,10 +113,10 @@ public class UserEntity{
 		this.email = email;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public String getName() {

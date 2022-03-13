@@ -22,7 +22,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 public class RoleEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long ID;
+	private Long id;
 	
 	@Column(name = "CreateDate")
 	@CreatedDate
@@ -48,11 +48,11 @@ public class RoleEntity{
     private List<UserEntity> users = new ArrayList<>();
 
 	public Long getID() {
-		return ID;
+		return id;
 	}
 
 	public void setID(Long iD) {
-		ID = iD;
+		this.id = iD;
 	}
 
 	public Date getCreateDate() {

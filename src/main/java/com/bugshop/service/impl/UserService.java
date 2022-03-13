@@ -1,16 +1,25 @@
 package com.bugshop.service.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.bugshop.converter.UserConverter;
 import com.bugshop.dto.UserDTO;
+import com.bugshop.entity.RoleEntity;
 import com.bugshop.entity.UserEntity;
 import com.bugshop.repository.RoleRepository;
 import com.bugshop.repository.UserRepository;
@@ -24,6 +33,9 @@ public class UserService implements IUserService {
 	UserRepository userRepository;
 	@Autowired 
 	RoleRepository roleRepository;
+	
+	@Autowired 
+	UserConverter userConverter;
 	@Override
 	@Transactional
 	public int register(UserDTO userDTO) {
@@ -50,6 +62,18 @@ public class UserService implements IUserService {
 		
 		String bcrypt = new BCryptPasswordEncoder().encode(pass);
 		return bcrypt;
+	}
+	@Override
+	public List<UserDTO> findAll() {
+		
+	        List<UserDTO> user = new ArrayList<>();
+	        List<UserEntity> entities = userRepository.findAll();
+	        entities.stream().forEach(entity -> {
+	        	UserDTO studentDto = userConverter.toDto(entity);
+	        	user.add(studentDto);
+	        });
+	        return user;
+	    
 	}
 	
 		
