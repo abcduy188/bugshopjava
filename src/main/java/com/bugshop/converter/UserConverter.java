@@ -26,7 +26,7 @@ public class UserConverter {
 		result.setCreateDate(entity.getCreateDate());
 		result.setModifiedBy(entity.getModifiedBy());
 		result.setModifiedDate(entity.getModifiedDate());
-		result.setRoles(entity.getRoles().stream().map(RoleEntity::getCode).collect(Collectors.toSet()));
+		result.setRoles(entity.getRoles());
 		
 		Set<String> value = new HashSet<>();
 		value = entity.getRoles().stream().map(RoleEntity::getCode).collect(Collectors.toSet());
@@ -34,9 +34,6 @@ public class UserConverter {
 		result.setRoleString(array.toString());
 		List<String> list = new ArrayList<>();
 		list.addAll(value);
-		String joined = String.join(" and ", list);
-		result.setRoleString(joined);
-		result.setRolelist((new ArrayList<String>(value)));
 		return result;
 	}
 	

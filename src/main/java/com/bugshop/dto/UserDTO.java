@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.bugshop.entity.RoleEntity;
+
 public class UserDTO extends AbstractDTO<UserDTO>{
 
 	private String email;
@@ -25,7 +27,7 @@ public class UserDTO extends AbstractDTO<UserDTO>{
 	public void setRoleString(String roleString) {
 		this.roleString = roleString;
 	}
-	private Set<String> roles = new HashSet<>();
+	private List<RoleEntity> roles = new ArrayList<>();
 	public String getEmail() {
 		return email;
 	}
@@ -35,11 +37,11 @@ public class UserDTO extends AbstractDTO<UserDTO>{
 	public String getPassword() {
 		return password;
 	}
-	public Set<String> getRoles() {
+	public List<RoleEntity> getRoles() {
 		return roles;
 	}
-	public void setRoles(Set<String> roles) {
-		this.roles = roles;
+	public void setRoles(List<RoleEntity> list) {
+		this.roles = list;
 	}
 	public void setPassword(String password) {
 		this.password = password;

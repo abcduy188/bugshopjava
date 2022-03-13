@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.bugshop.converter.CategoryConverter;
 import com.bugshop.converter.ProductConverter;
-import com.bugshop.dto.CategoryDTO;
 import com.bugshop.dto.ProductDTO;
 import com.bugshop.entity.CategoryEntity;
 import com.bugshop.entity.ProductEntity;
