@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <c:url var="api" value="/admin/product/create" />
 <div class="container-fluid">
 	<div class="card">
@@ -16,8 +16,7 @@
 				</div>
 				<div class="form-group">
 					<label for="input-2">seoTitle</label>
-					<form:input type="text" class="form-control" id="slug"
-						path="seoTitle"  disabled/>
+					<form:input path="SeoTitle" type="text" class="form-control" id="slug" readonly="true"/>
 				</div>
 				<div class="form-group">
 					<label for="input-3">Image</label>
