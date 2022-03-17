@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <div class="showcase-grid">
+
+
 	<div class="container">
 		<div class="col-md-8 showcase">
 			<div class="flexslider">
@@ -71,7 +73,7 @@
 			<div class="shocase-rt-bot">
 				<ul>
 					<li class="ad-2-crt simpleCart_shelfItem"><a
-						class="btn item_add" href="#" role="button">Add To Cart</a> <a
+						class="btn item_add" href="<c:url value='/add-cart/${productlist.iD}'/>" role="button">Add To Cart</a> <a
 						class="btn" href="#" role="button">Buy Now</a></li>
 				</ul>
 			</div>

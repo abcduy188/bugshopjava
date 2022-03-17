@@ -15,16 +15,15 @@
 						class="btn btn-default log-bar"
 						href="<c:url value='/dang-nhap' />" role="button">Login</a>
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="<c:url value ='/gio-hang'/>">
 							<h3>
 								<div class="total">
-									<span class="simpleCart_total"></span>(<span
-										id="simpleCart_quantity" class="simpleCart_quantity"></span>)
+									<span class="">${TotalP }</span>(${Cart.size() })
 								</div>
 							</h3>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+							<a href="<c:url value ='/gio-hang'/>" class="simpleCart_empty"> Cart</a>
 						</p>
 						<div class="clearfix"></div>
 					</div>
