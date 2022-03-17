@@ -70,13 +70,26 @@ public class ProductService implements IProductService {
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		ProductEntity productEntity =productRepository.findOne(id);
-		if(id!= null) {
+		ProductEntity productEntity = productRepository.findOne(id);
+		if (id != null) {
 			productEntity.setIsDelete(true);
 		}
 		productConverter.toDto(productRepository.save(productEntity));
-		
+
 	}
-	
+
+	@Override
+	public List<ProductDTO> productbycate(Long id) {
+		List<ProductEntity> entities = productRepository.productbycate(id);
+		List<ProductDTO> models = new ArrayList<>();
+		for (ProductEntity item : entities) {
+
+			ProductDTO products = productConverter.toDto(item);
+			products.setCategoryName(item.getCategory().getCategoryName().toString());
+			models.add(products);
+		}
+		return models;
+
+	}
 
 }
