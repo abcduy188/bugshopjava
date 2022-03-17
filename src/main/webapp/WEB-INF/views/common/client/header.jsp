@@ -1,5 +1,5 @@
 <%@ page import="com.bugshop.utils.SecurityUtils"%>
-
+<%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="header">
@@ -12,7 +12,8 @@
 				<div class="login-bars">
 					<a class="btn btn-default log-bar"
 						href="<c:url value='/dang-ky' />" role="button">Sign up</a> <a
-						class="btn btn-default log-bar" href="<c:url value='/dang-nhap' />" role="button">Login</a>
+						class="btn btn-default log-bar"
+						href="<c:url value='/dang-nhap' />" role="button">Login</a>
 					<div class="cart box_1">
 						<a href="checkout.html">
 							<h3>
@@ -80,13 +81,13 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">Shop<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="products.html">Shoes</a></li>
-									<li><a href="products.html">Tees</a></li>
-									<li><a href="products.html">Tops</a></li>
-									<li class="divider"></li>
-									<li><a href="products.html">Tracks</a></li>
-									<li class="divider"></li>
-									<li><a href="products.html">Gear</a></li>
+									<c:forEach var="item" items="${catelist.listResult}">
+										<li><a
+											href='<c:url value='/danh-muc'>
+											<c:param name="id">${item.iD}</c:param>
+										</c:url>'>${item.categoryName}</a></li>
+									</c:forEach>
+
 								</ul></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown">Men<b class="caret"></b></a>
@@ -94,7 +95,7 @@
 									<div class="row">
 										<div class="col-sm-4 menu-img-pad">
 											<ul class="multi-column-dropdown">
-												<li><a href="products.html">Joggers</a></li>
+												<li><a href="/danh-muc/">Joggers</a></li>
 												<li><a href="products.html">Foot Ball</a></li>
 												<li><a href="products.html">Cricket</a></li>
 												<li class="divider"></li>

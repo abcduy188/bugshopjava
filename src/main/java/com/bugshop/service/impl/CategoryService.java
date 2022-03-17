@@ -72,9 +72,14 @@ public class CategoryService implements ICategoryService {
 	  public Map<Long, String> findAllbypr() {
 		  Map<Long, String> result= new HashMap<>();
 		  List<CategoryEntity> entities = categoryRepository.findAll();
+		  
 		  for( CategoryEntity item: entities)
 		  {
-			  result.put(item.getID(), item.getCategoryName());
+			  if(item.isIsDelete() == false && item.isStatus() == true)
+			  {
+				  result.put(item.getID(), item.getCategoryName());
+			  }
+			  
 		  }
 		  return result;
 	   }
