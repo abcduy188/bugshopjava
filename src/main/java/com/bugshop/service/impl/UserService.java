@@ -55,7 +55,6 @@ public class UserService implements IUserService {
 		userRepository.save(user);
 		return 1;
 		
-		
 	}
 	private String encode(String pass)
 	{

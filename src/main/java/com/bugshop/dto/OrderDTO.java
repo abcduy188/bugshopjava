@@ -16,7 +16,6 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	
 	private Date CreateDate;
 	
-	
 	@Transient
 	private long customer_id;
 	
@@ -37,7 +36,6 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 	private String shipping_phone;
 	
 	
-    private List<ProductEntity> products = new ArrayList<>();
 
 
 	public long getOrder_id() {
@@ -149,15 +147,6 @@ public class OrderDTO extends AbstractDTO<OrderDTO>{
 		this.shipping_phone = shipping_phone;
 	}
 
-
-	public List<ProductEntity> getProducts() {
-		return products;
-	}
-
-
-	public void setProducts(List<ProductEntity> products) {
-		this.products = products;
-	}
     
 	
 }

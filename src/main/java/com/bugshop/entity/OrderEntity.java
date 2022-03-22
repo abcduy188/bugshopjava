@@ -1,8 +1,6 @@
 package com.bugshop.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -48,13 +44,6 @@ public class OrderEntity {
 	private int shipping_type;
 	@Column(name = "shipping_phone", columnDefinition = "varchar(11)")
 	private String shipping_phone;
-
-	// lazy : co list load tu bang role, chi load khi dc goi ra
-
-	// tao khoa ngoai n-n
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "order_detail", joinColumns = @JoinColumn(name = "order_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-	private List<ProductEntity> products = new ArrayList<>();
 
 	public Date getCreateDate() {
 		return CreateDate;
@@ -137,13 +126,6 @@ public class OrderEntity {
 	}
 
 
-	public List<ProductEntity> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<ProductEntity> products) {
-		this.products = products;
-	}
 
 	public long getOrder_id() {
 		return order_id;

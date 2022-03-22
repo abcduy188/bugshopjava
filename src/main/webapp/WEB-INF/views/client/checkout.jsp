@@ -8,37 +8,38 @@
 	<div class="col-md-6 reg-form">
 		<div class="container">
 			<div class="reg" >
-				 <form action="" method="POST">
+				 <form:form action="checkout" method="POST" modelAttribute="user">
+				 <form:hidden path="customer_id"/>
 					<ul>
 						<li class="text-info">Email </li>
-						<li><input type="text" name="ship_email" class="ship_email" value=""></li>
+						<li><form:input type="text" name="ship_email" class="ship_email" path="shipping_email"/></li>
 					</ul>
 					<ul>
 						<li class="text-info">Họ tên người nhận: </li>
-						<li><input type="text"name="ship_name" class="ship_name"value=""></li>
+						<li><form:input type="text" class="ship_name" path="shipping_name"/></li>
 					 </ul>
                      <ul>
 						<li class="text-info">Số điện thoại: </li>
-						<li><input type="text"name="ship_phone"class="ship_phone" value=""></li>
+						<li><form:input type="text" class="ship_phone" path="shipping_phone"/></li>
 					</ul>				 
 					<ul>
 						<li class="text-info">Địa chỉ nhận hàng: </li>
-						<li><input type="text"name="ship_address"class="ship_address" value=""></li>
+						<li><form:input type="text" class="ship_address" path="shipping_address"/></li>
 					</ul>
 				
 					<ul>
 						<li class="text-info">Ghi chú thêm:</li>
-						<li><input type="text"name="ship_note"class="ship_note" value=""></li>
+						<li><form:input type="text" class="ship_note" path="order_note"/></li>
 					</ul>
                     <ul>
                         <li class="text-info">Chọn hình thức</li>
-                        <select name="payment_option" class="payment_option">
-                            <option value="0"> Paypal</option>
-                            <option value="1" selected> Tiền mặt</option>
-                        </select>
+                        <form:select path="shipping_type" >
+                           <form:option value="0" label="Tiền mặt"/>  
+                           <form:option value="1" label="Thanh toán"/>  
+                        </form:select>
                     </ul>					
 					<input type="submit" class="send_order" value="Xác nhận đặt hàng">
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>

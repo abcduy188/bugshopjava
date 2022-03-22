@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.User;
 
 public class MyUser extends User {
 
-	public MyUser(String email,String username, String password, boolean enabled, boolean accountNonExpired,
+	public MyUser(Long id,String email,String username, String password, boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked,
 			Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
@@ -29,5 +29,12 @@ public class MyUser extends User {
 	}
 
 	private String name;
+	private Long id;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 }
