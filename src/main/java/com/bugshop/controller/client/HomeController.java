@@ -35,7 +35,7 @@ public class HomeController {
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		CategoryDTO model = new CategoryDTO();
-		model.setListResult(iCategoryService.findAll());
+		model.setListResult(iCategoryService.listactive());
 		ModelAndView mav = new ModelAndView("client/home");
 		mav.addObject("catelist", model);
 		return mav;
@@ -44,7 +44,7 @@ public class HomeController {
 	public ModelAndView category(@RequestParam(value = "id", required = true) Long id) {
 		CategoryDTO model = new CategoryDTO();
 		ProductDTO prodto = new ProductDTO();
-		model.setListResult(iCategoryService.findAll());
+		model.setListResult(iCategoryService.listactive());
 		prodto.setListResult(iProductService.productbycate(id));
 		ModelAndView mav = new ModelAndView("client/category");
 		mav.addObject("catelist", model);
@@ -55,7 +55,7 @@ public class HomeController {
 	public ModelAndView product(@RequestParam(value = "id", required = true) Long id) {
 		CategoryDTO model = new CategoryDTO();
 		ProductDTO prodto = new ProductDTO();
-		model.setListResult(iCategoryService.findAll());
+		model.setListResult(iCategoryService.listactive());
 		prodto = iProductService.findByID(id);
 		prodto.setListResult(iProductService.productbycate(prodto.getCategoryId()));
 		ModelAndView mav = new ModelAndView("client/product");

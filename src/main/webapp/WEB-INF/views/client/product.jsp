@@ -21,24 +21,7 @@
 								class="img-responsive" style="height: 400px; width: auto">
 						</div>
 					</li>
-					<%-- <li data-thumb="${productlist.image}">
-						<div class="thumb-image">
-							<img src="${productlist.image}" data-imagezoom="true"
-								class="img-responsive" style="height: 400px; width: auto">
-						</div>
-					</li>
-					<li data-thumb="/template/client/images/show2.jpg">
-						<div class="thumb-image">
-							<img src="images/show2.jpg" data-imagezoom="true"
-								class="img-responsive" style="height: 400px; width: auto">
-						</div>
-					</li>
-					<li data-thumb="/template/client/images/show3.jpg">
-						<div class="thumb-image">
-							<img src="images/show3.jpg" data-imagezoom="true"
-								class="img-responsive" style="height: 400px; width: auto">
-						</div>
-					</li> --%>
+				
 				</ul>
 				<div class="clearfix"></div>
 			</div>

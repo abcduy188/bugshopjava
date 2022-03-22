@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 
@@ -10,13 +10,13 @@
 </head>
 <body>
 	<h1>Upload demo</h1>
-	<%-- <c:url value="/admin/upload" var="action" />
+	<c:url value="/admin/upload" var="action" />
 	<form:form method="post" action="${action}" modelAttribute="image"
 		enctype="multipart/form-data">
 
 		<form:input path="file" id="file" type="file" />
 		<input type="submit" value="theem san pham" />
-	</form:form> --%>
+	</form:form>
 
 	<form:form id="formSubmit" modelAttribute="image" enctype="multipart/form-data">
 		<form:input path="file" id="file" type="file" />
@@ -82,4 +82,4 @@
 		}
 	</script>
 </body>
-</html>
+</html> --%>

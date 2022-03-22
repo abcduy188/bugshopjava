@@ -1,5 +1,6 @@
 <%@ page import="com.bugshop.utils.SecurityUtils"%>
 <%@ include file="/WEB-INF/views/common/taglib.jsp"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="header">
@@ -17,13 +18,24 @@
 					<div class="cart box_1">
 						<a href="<c:url value ='/gio-hang'/>">
 							<h3>
-								<div class="total">
-									<span class="">${TotalP }</span>(${Cart.size() })
-								</div>
+								<c:if test="${Cart != null  }">
+									<div class="total">
+										<span class=""><fmt:formatNumber value="${TotalP}"
+												type="currency" currencySymbol="VND" currencyCode="VND" /></span>(${TotalQ })
+									</div>
+
+								</c:if>
+								<c:if test="${Cart == null  }">
+									<div class="total">
+										<span class="">0</span>(0)
+									</div>
+
+								</c:if>
 							</h3>
 						</a>
 						<p>
-							<a href="<c:url value ='/gio-hang'/>" class="simpleCart_empty"> Cart</a>
+							<a href="<c:url value ='/gio-hang'/>" class="simpleCart_empty">
+								Cart</a>
 						</p>
 						<div class="clearfix"></div>
 					</div>
@@ -38,16 +50,26 @@
 					<a class="btn btn-default log-bar" href="<c:url value='/thoat' />"
 						role="button">Logout</a>
 					<div class="cart box_1">
-						<a href="checkout.html">
+						<a href="<c:url value ='/gio-hang'/>">
 							<h3>
-								<div class="total">
-									<span class="simpleCart_total"></span>(<span
-										id="simpleCart_quantity" class="simpleCart_quantity"></span>)
-								</div>
+								<c:if test="${Cart != null  }">
+									<div class="total">
+										<span class=""><fmt:formatNumber value="${TotalP}"
+												type="currency" currencySymbol="VND" currencyCode="VND" /></span>(${TotalQ })
+									</div>
+
+								</c:if>
+								<c:if test="${Cart == null  }">
+									<div class="total">
+										<span class="">0</span>(0)
+									</div>
+
+								</c:if>
 							</h3>
 						</a>
 						<p>
-							<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+							<a href="<c:url value ='/gio-hang'/>" class="simpleCart_empty">
+								Cart</a>
 						</p>
 						<div class="clearfix"></div>
 					</div>
@@ -77,77 +99,12 @@
 					<div class="collapse navbar-collapse collapse-pdng"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav nav-font">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Shop<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<c:forEach var="item" items="${catelist.listResult}">
-										<li><a
-											href='<c:url value='/danh-muc'>
+							<c:forEach var="item" items="${catelist.listResult}">
+								<li class="dropdown"><a
+									href='<c:url value='/danh-muc'>
 											<c:param name="id">${item.iD}</c:param>
 										</c:url>'>${item.categoryName}</a></li>
-									</c:forEach>
-
-								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Men<b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-3">
-									<div class="row">
-										<div class="col-sm-4 menu-img-pad">
-											<ul class="multi-column-dropdown">
-												<li><a href="/danh-muc/">Joggers</a></li>
-												<li><a href="products.html">Foot Ball</a></li>
-												<li><a href="products.html">Cricket</a></li>
-												<li class="divider"></li>
-												<li><a href="products.html">Tennis</a></li>
-												<li class="divider"></li>
-												<li><a href="products.html">Casual</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-4 menu-img-pad">
-											<a href="#"><img src="images/menu1.jpg" alt="/"
-												class="img-rsponsive men-img-wid" /></a>
-										</div>
-										<div class="col-sm-4 menu-img-pad">
-											<a href="#"><img
-												src="<c:url value='/template/client/images/menu2.jpg'/>"
-												alt="/" class="img-rsponsive men-img-wid" /></a>
-										</div>
-									</div>
-								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Women<b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column columns-2">
-									<div class="row">
-										<div class="col-sm-6">
-											<ul class="multi-column-dropdown">
-												<li><a href="products.html">Tops</a></li>
-												<li><a href="products.html">Bottoms</a></li>
-												<li><a href="products.html">Yoga Pants</a></li>
-												<li class="divider"></li>
-												<li><a href="products.html">Sports</a></li>
-												<li class="divider"></li>
-												<li><a href="products.html">Gym</a></li>
-											</ul>
-										</div>
-										<div class="col-sm-6">
-											<a href="#"><img
-												src="<c:url value='/template/client/images/menu3.jpg'/>"
-												alt="/" class="img-rsponsive men-img-wid" /></a>
-										</div>
-									</div>
-								</ul></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">kids<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="products.html">Tees</a></li>
-									<li><a href="products.html">Shorts</a></li>
-									<li><a href="products.html">Gear</a></li>
-									<li class="divider"></li>
-									<li><a href="products.html">Watches</a></li>
-									<li class="divider"></li>
-									<li><a href="products.html">Shoes</a></li>
-								</ul></li>
-							<li><a href="contact.html">Catch</a></li>
+							</c:forEach>
 							<div class="clearfix"></div>
 						</ul>
 						<div class="clearfix"></div>

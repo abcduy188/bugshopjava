@@ -1,6 +1,8 @@
 package com.bugshop.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -61,6 +65,18 @@ public class ProductEntity {
 		@LastModifiedBy
 		private String ModifiedBy;
 		
+		
+		
+		@ManyToMany(mappedBy = "products")
+	    private List<OrderEntity> orders = new ArrayList<>();
+		
+		
+		public List<OrderEntity> getOrders() {
+			return orders;
+		}
+		public void setOrders(List<OrderEntity> orders) {
+			this.orders = orders;
+		}
 		public Date getCreateDate() {
 			return CreateDate;
 		}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,19 +67,19 @@
 	<div id="wrapper">
 
 		<!-- Slidebar -->
-		<%@ include file="/common/admin/slidebar.jsp"%>
+		<%@ include file="/WEB-INF/views/common/admin/slidebar.jsp"%>
 		<!-- end slidebar -->
 		<div id="content-wrapper" class="d-flex flex-column">
 			<div id="content">
 				<!-- header -->
-				<%@ include file="/common/admin/header.jsp"%>
+				<%@ include file="/WEB-INF/views/common/admin/header.jsp"%>
 				<!-- end slidebar -->
 
 				<!--body  -->
 				<dec:body />
 			</div>
 			<!-- footer -->
-			<%@ include file="/common/admin/footer.jsp"%>
+			<%@ include file="/WEB-INF/views/common/admin/footer.jsp"%>
 		</div>
 
 

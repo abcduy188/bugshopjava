@@ -23,6 +23,18 @@ public class CategoryService implements ICategoryService {
 	private CategoryRepository categoryRepository;
 	@Autowired
 	private CategoryConverter categoryConverter;
+	
+	@Override
+	public List<CategoryDTO> listactive() {
+		List<CategoryEntity> entities = categoryRepository.listactive();
+
+		List<CategoryDTO> models = new ArrayList<>();
+		for (CategoryEntity item : entities) {
+			CategoryDTO categoryDTO = categoryConverter.toDto(item);
+			models.add(categoryDTO);
+		}
+		return models;
+	}
 
 	@Override
 	public List<CategoryDTO> findAll() {
