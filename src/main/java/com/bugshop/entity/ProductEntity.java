@@ -27,7 +27,7 @@ public class ProductEntity {
 		@Id
 		//Auto increment
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private long ID;
+		private long id;
 		@Column(name = "Name")
 		private String Name;
 		@Column(name = "SeoTitle",  columnDefinition = "nvarchar(255)")
@@ -77,8 +77,12 @@ public class ProductEntity {
 		private String monitor;
 		
 		
-		public void setID(long iD) {
-			ID = iD;
+		
+		public long getId() {
+			return id;
+		}
+		public void setId(long id) {
+			this.id = id;
 		}
 		public Date getCreateDate() {
 			return CreateDate;
@@ -111,9 +115,7 @@ public class ProductEntity {
 		public void setCategory(CategoryEntity category) {
 			this.category = category;
 		}
-		public long getID() {
-			return ID;
-		}
+		
 		
 		public String getName() {
 			return Name;

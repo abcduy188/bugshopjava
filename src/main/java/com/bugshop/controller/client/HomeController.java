@@ -1,24 +1,30 @@
 package com.bugshop.controller.client;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bugshop.dto.CategoryDTO;
 import com.bugshop.dto.ProductDTO;
 import com.bugshop.dto.SlideDTO;
 import com.bugshop.dto.UserDTO;
+import com.bugshop.entity.ProductEntity;
 import com.bugshop.service.ICategoryService;
 import com.bugshop.service.IProductService;
 import com.bugshop.service.ISlidesService;
@@ -33,7 +39,7 @@ public class HomeController {
 	private ICategoryService iCategoryService;
 	@Autowired
 	private IProductService iProductService;
-	@Autowired 
+	@Autowired
 	private ISlidesService iSlidesService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
@@ -50,6 +56,7 @@ public class HomeController {
 		mav.addObject("slides", slide);
 		return mav;
 	}
+
 	@GetMapping(value = "/danh-muc")
 	public ModelAndView category(@RequestParam(value = "id", required = true) Long id) {
 		CategoryDTO model = new CategoryDTO();
@@ -61,6 +68,23 @@ public class HomeController {
 		mav.addObject("productlist", prodto);
 		return mav;
 	}
+
+	@GetMapping(value = "/san-pham")
+	public String allCate(@RequestParam(value = "page", required = false) int pageNumber, Model model) {
+		Page<ProductEntity> page = iProductService.listEntity(pageNumber);
+		long totalItems = page.getTotalElements();
+		int totalPages = page.getTotalPages();
+		CategoryDTO cate = new CategoryDTO();
+		cate.setListResult(iCategoryService.listactive());
+		List<ProductEntity> listProducts = page.getContent();
+		model.addAttribute("currentPage", pageNumber);
+		model.addAttribute("totalItems", totalItems);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("model", listProducts);
+		model.addAttribute("catelist", cate);
+		return "client/allproduct";
+	}
+
 	@GetMapping(value = "/san-pham/{seotitle}")
 	public ModelAndView product(@RequestParam(value = "id", required = true) Long id) {
 		CategoryDTO model = new CategoryDTO();
@@ -73,9 +97,6 @@ public class HomeController {
 		mav.addObject("productlist", prodto);
 		return mav;
 	}
-	
-	
-	
 
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.GET)
 	public String Login() {
@@ -115,4 +136,17 @@ public class HomeController {
 	public ModelAndView accessDenied() {
 		return new ModelAndView("redirect:/dang-nhap?accessDenied");
 	}
+	@GetMapping(value = "/tim-kiem")
+	@ResponseBody
+	public ModelAndView search(@RequestParam(value = "name") String pSearchTerm) {
+		CategoryDTO model = new CategoryDTO();
+		ProductDTO prodto = new ProductDTO();
+		model.setListResult(iCategoryService.listactive());
+		prodto.setListResult(iProductService.search(pSearchTerm));
+		ModelAndView mav = new ModelAndView("client/search");
+		mav.addObject("catelist", model);
+		mav.addObject("productlist", prodto);
+		return mav;
+	}
+	
 }

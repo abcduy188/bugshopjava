@@ -9,7 +9,7 @@ public class ProductConverter {
 
 	public ProductDTO toDto(ProductEntity entity) {
 		ProductDTO result = new ProductDTO();
-		result.setiD(entity.getID());
+		result.setiD(entity.getId());
 		result.setName(entity.getName());
 		result.setSeoTitle(entity.getSeoTitle());
 		result.setDescription(entity.getDescription());
