@@ -2,7 +2,11 @@ package com.bugshop.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.bugshop.dto.ProductDTO;
+import com.bugshop.dto.ProductPage;
+import com.bugshop.entity.ProductEntity;
 
 public interface IProductService {
 	List<ProductDTO> list();
@@ -10,4 +14,5 @@ public interface IProductService {
 	int save(ProductDTO productDTO);
 	ProductDTO findByID(Long id);
 	void delete(Long id);
+	
 }

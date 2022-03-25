@@ -6,11 +6,17 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.jaxb.SpringDataJaxb.PageRequestDto;
 import org.springframework.stereotype.Service;
 
 import com.bugshop.converter.CategoryConverter;
 import com.bugshop.converter.ProductConverter;
 import com.bugshop.dto.ProductDTO;
+import com.bugshop.dto.ProductPage;
 import com.bugshop.entity.CategoryEntity;
 import com.bugshop.entity.ProductEntity;
 import com.bugshop.repository.CategoryRepository;
@@ -31,7 +37,7 @@ public class ProductService implements IProductService {
 
 	public List<ProductDTO> list() {
 
-		List<ProductEntity> entities = productRepository.findAll();
+		List<ProductEntity> entities = (List<ProductEntity>) productRepository.findAll();
 
 		List<ProductDTO> models = new ArrayList<>();
 		for (ProductEntity item : entities) {
@@ -44,6 +50,7 @@ public class ProductService implements IProductService {
 	}
 
 	public ProductDTO findByID(Long id) {
+		
 		ProductDTO dto = productConverter.toDto(productRepository.findOne(id));
 		return dto;
 	}
@@ -91,5 +98,6 @@ public class ProductService implements IProductService {
 		return models;
 
 	}
+
 
 }
