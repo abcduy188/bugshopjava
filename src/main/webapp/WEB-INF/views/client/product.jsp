@@ -90,11 +90,10 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="home">
-					<p>The full-length Max Air unit delivers excellent cushioning
-						with enhanced flexibility for smoother transitions through
-						footstrike.</p>
-					<p>Dynamic Flywire cables integrate with the laces and wrap
-						your midfoot for a truly adaptive, supportive fit.</p>
+					<p>${productlist.cpu}</p>
+					<p>${productlist.vga}</p>
+					<p>${productlist.ram}</p>
+					<p>${productlist.monitor}</p>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="profile">
 					<p>Nike is one of the leading manufacturer and supplier of

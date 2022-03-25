@@ -17,9 +17,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bugshop.dto.CategoryDTO;
 import com.bugshop.dto.ProductDTO;
+import com.bugshop.dto.SlideDTO;
 import com.bugshop.dto.UserDTO;
 import com.bugshop.service.ICategoryService;
 import com.bugshop.service.IProductService;
+import com.bugshop.service.ISlidesService;
 import com.bugshop.service.IUserService;
 
 @Controller(value = "homeControllerOfClient")
@@ -31,13 +33,21 @@ public class HomeController {
 	private ICategoryService iCategoryService;
 	@Autowired
 	private IProductService iProductService;
+	@Autowired 
+	private ISlidesService iSlidesService;
 
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		CategoryDTO model = new CategoryDTO();
+		ProductDTO products = new ProductDTO();
+		SlideDTO slide = new SlideDTO();
+		slide.setListResult(iSlidesService.slideshome());
 		model.setListResult(iCategoryService.listactive());
+		products.setListResult(iProductService.productsHighlights());
 		ModelAndView mav = new ModelAndView("client/home");
 		mav.addObject("catelist", model);
+		mav.addObject("highlights", products);
+		mav.addObject("slides", slide);
 		return mav;
 	}
 	@GetMapping(value = "/danh-muc")
@@ -63,17 +73,6 @@ public class HomeController {
 		mav.addObject("productlist", prodto);
 		return mav;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

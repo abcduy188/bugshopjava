@@ -43,6 +43,22 @@
 					<form:input path="promotionPrice" type="text" class="form-control" />
 				</div>
 				<div class="form-group">
+					<label for="input-1">cpu: </label>
+					<form:input path="cpu" type="text" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="input-1">vga: </label>
+					<form:input path="vga" type="text" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="input-1">ram: </label>
+					<form:input path="ram" type="text" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="input-1">monitor: </label>
+					<form:input path="monitor" type="text" class="form-control" />
+				</div>
+				<div class="form-group">
 					<form:select path="categoryId" id="categoryId"
 						style="background: white;">
 						<form:option style="background: white;" value=""

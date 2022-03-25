@@ -24,6 +24,11 @@ public class ProductConverter {
 		result.setModifiedBy(entity.getModifiedBy());
 		result.setModifiedDate(entity.getModifiedDate());
 		result.setCategoryId(entity.getCategory().getID());
+		result.setHighlights(entity.isHighlights());
+		result.setCpu(entity.getCpu());
+		result.setRam(entity.getRam());
+		result.setVga(entity.getVga());
+		result.setMonitor(entity.getMonitor());
 		return result;
 	}
 	
@@ -42,6 +47,11 @@ public class ProductConverter {
 		result.setCreateDate(dto.getCreateDate());
 		result.setModifiedBy(dto.getModifiedBy());
 		result.setModifiedDate(dto.getModifiedDate());
+		result.setHighlights(dto.isHighlights());
+		result.setCpu(dto.getCpu());
+		result.setRam(dto.getRam());
+		result.setVga(dto.getVga());
+		result.setMonitor(dto.getMonitor());
 		return result;
 	}
 	
@@ -60,6 +70,11 @@ public class ProductConverter {
 		result.setIsDelete(dto.isDelete());
 		result.setModifiedBy(dto.getModifiedBy());
 		result.setModifiedDate(dto.getModifiedDate());
+		result.setHighlights(dto.isHighlights());
+		result.setCpu(dto.getCpu());
+		result.setRam(dto.getRam());
+		result.setVga(dto.getVga());
+		result.setMonitor(dto.getMonitor());
 		return result;
 	}
 }

@@ -15,4 +15,9 @@ public interface IProductService {
 	ProductDTO findByID(Long id);
 	void delete(Long id);
 	
+	void activeStatus (Long id);
+	void activeHighlights(Long id);
+	void unactiveStatus (Long id);
+	void unactiveHighlights(Long id);
+	List<ProductDTO> productsHighlights();
 }

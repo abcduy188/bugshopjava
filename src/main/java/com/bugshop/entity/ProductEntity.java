@@ -65,6 +65,18 @@ public class ProductEntity {
 		@LastModifiedBy
 		private String ModifiedBy;
 		
+		@Column(name = "highlights",columnDefinition = "boolean default true")
+		private boolean highlights;
+		@Column(name = "cpu",  columnDefinition = "nvarchar(255)")
+		private String cpu;
+		@Column(name = "vga",  columnDefinition = "nvarchar(255)")
+		private String vga;
+		@Column(name = "ram",  columnDefinition = "nvarchar(255)")
+		private String ram;
+		@Column(name = "monitor",  columnDefinition = "nvarchar(255)")
+		private String monitor;
+		
+		
 		public void setID(long iD) {
 			ID = iD;
 		}
@@ -156,6 +168,36 @@ public class ProductEntity {
 		}
 		public void setIsDelete(boolean isDelete) {
 			IsDelete = isDelete;
+		}
+		public boolean isHighlights() {
+			return highlights;
+		}
+		public void setHighlights(boolean highlights) {
+			this.highlights = highlights;
+		}
+		public String getCpu() {
+			return cpu;
+		}
+		public void setCpu(String cpu) {
+			this.cpu = cpu;
+		}
+		public String getVga() {
+			return vga;
+		}
+		public void setVga(String vga) {
+			this.vga = vga;
+		}
+		public String getRam() {
+			return ram;
+		}
+		public void setRam(String ram) {
+			this.ram = ram;
+		}
+		public String getMonitor() {
+			return monitor;
+		}
+		public void setMonitor(String monitor) {
+			this.monitor = monitor;
 		}
 		
 }
