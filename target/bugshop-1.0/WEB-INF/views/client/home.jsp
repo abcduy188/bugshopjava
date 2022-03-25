@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <body>
-
 	<div class="header-end">
 		<div class="container">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +36,7 @@
 <script src="<c:url value ='/template/client/js/bootstrap.min.js'/>"></script>
 <!-- FlexSlider -->
 <script src="<c:url value ='/template/client/js/imagezoom.js'/>"></script>
-<script defer src="js/jquery.flexslider.js"></script>
+<script defer src="<c:url value ='/template/client/js/jquery.flexslider.js'/>"></script>
 <link rel="stylesheet"
 	href="<c:url value ='/template/client/css/flexslider.css'/>"
 	type="text/css" media="screen" />
@@ -54,8 +54,8 @@
 </head>
 <body>
 	<!-- Header -->
-	<%@ include file="/common/client/header.jsp"%>
+	<%@ include file="/WEB-INF/views/common/client/header.jsp"%>
 	<dec:body />
-	<%@ include file="/common/client/footer.jsp"%>
+	<%@ include file="/WEB-INF/views/common/client/footer.jsp"%>
 </body>
 </html>

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <body>
-
 	<div class="header-end">
 		<div class="container">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">

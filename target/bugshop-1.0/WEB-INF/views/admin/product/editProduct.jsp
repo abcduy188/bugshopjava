@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/common/taglib.jsp"%>
+<%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <c:url var="api" value="/admin/product/edit" />
 <div class="container-fluid">
 	<div class="card">
@@ -18,7 +18,7 @@
 				<div class="form-group">
 					<label for="input-2">seoTitle</label>
 					<form:input type="text" class="form-control" id="slug"
-						path="seoTitle" />
+						path="seoTitle" readonly="true" />
 				</div>
 				<div class="form-group">
 					<label for="input-3">Image</label>
@@ -97,4 +97,6 @@
 			//In slug ra textbox có id “slug”
 			document.getElementById('slug').value = slug;
 		}
+		title = document.getElementById("title").value;
+		var price = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(1000);
 	</script>
