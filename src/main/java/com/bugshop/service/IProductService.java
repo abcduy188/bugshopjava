@@ -10,7 +10,9 @@ import com.bugshop.entity.ProductEntity;
 
 public interface IProductService {
 	List<ProductDTO> list();
+	Page<ProductEntity> listEntity(int numberPage);
 	List<ProductDTO> productbycate(Long id);
+	List<ProductDTO> search(String keyword);
 	int save(ProductDTO productDTO);
 	ProductDTO findByID(Long id);
 	void delete(Long id);

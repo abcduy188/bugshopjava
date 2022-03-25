@@ -139,6 +139,28 @@ public class ProductService implements IProductService {
 		}
 		return models;
 	}
+	
+	
+	public Page<ProductEntity> listEntity(int pageNumber) {
+
+		Pageable pageable = new PageRequest(pageNumber-1, 2);
+		
+		return productRepository.findAll(pageable);
+	}
+
+	@Override
+	public List<ProductDTO> search(String keyword) {
+		List<ProductEntity> entities = productRepository.search(keyword);
+		List<ProductDTO> models = new ArrayList<>();
+		for (ProductEntity item : entities) {
+
+			ProductDTO products = productConverter.toDto(item);
+			products.setCategoryName(item.getCategory().getCategoryName().toString());
+			models.add(products);
+		}
+		return models;
+	}
+
 
 
 }

@@ -9,6 +9,18 @@
 			<div class="logo">
 				<a href="index.html">N-AIR</a>
 			</div>
+			<div class="row">
+				<form method="get" action="<c:url value = "/tim-kiem"/>">
+					<div class="small-3 columns">
+						<input type="text" id="txt" name="name">
+					</div>
+
+					<div class="small-5 columns end">
+						<button id="button-id" type="submit">Search Teams</button>
+					</div>
+				</form>
+
+			</div>
 			<security:authorize access="isAnonymous()">
 				<div class="login-bars">
 					<a class="btn btn-default log-bar"
@@ -99,6 +111,10 @@
 					<div class="collapse navbar-collapse collapse-pdng"
 						id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav nav-font">
+							<li class="dropdown"><a
+								href='<c:url value='/san-pham?page=1'/>
+										'>Tất cả
+									sản phẩm</a></li>
 							<c:forEach var="item" items="${catelist.listResult}">
 								<li class="dropdown"><a
 									href='<c:url value='/danh-muc'>
