@@ -25,6 +25,56 @@ public class ProductDTO extends AbstractDTO<ProductDTO>{
 	private MultipartFile imagefile;
 	@Transient
 	private String categoryName;
+	
+	
+	
+	private boolean highlights;
+	private String cpu;
+	private String vga;
+	private String ram;
+	private String monitor;
+	
+	
+	public boolean isHighlights() {
+		return highlights;
+	}
+
+	public void setHighlights(boolean highlights) {
+		this.highlights = highlights;
+	}
+
+	public String getCpu() {
+		return cpu;
+	}
+
+	public void setCpu(String cpu) {
+		this.cpu = cpu;
+	}
+
+	public String getVga() {
+		return vga;
+	}
+
+	public void setVga(String vga) {
+		this.vga = vga;
+	}
+
+	public String getRam() {
+		return ram;
+	}
+
+	public void setRam(String ram) {
+		this.ram = ram;
+	}
+
+	public String getMonitor() {
+		return monitor;
+	}
+
+	public void setMonitor(String monitor) {
+		this.monitor = monitor;
+	}
+
 	public Long getCategoryId() {
 		return categoryId;
 	}

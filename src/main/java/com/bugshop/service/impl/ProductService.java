@@ -99,5 +99,46 @@ public class ProductService implements IProductService {
 
 	}
 
+	@Override
+	@Transactional
+	public void activeStatus(Long id) {
+		productRepository.activeStatus(id);
+	}
+
+	@Override
+	@Transactional
+	public void activeHighlights(Long id) {
+		productRepository.activeHighlights(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public void unactiveStatus(Long id) {
+		productRepository.unactiveStatus(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public void unactiveHighlights(Long id) {
+		productRepository.unactiveHighlights(id);
+		
+	}
+
+	@Override
+	public List<ProductDTO> productsHighlights() {
+		
+		List<ProductEntity> entities = productRepository.productsHighlights();
+		List<ProductDTO> models = new ArrayList<>();
+		for (ProductEntity item : entities) {
+
+			ProductDTO products = productConverter.toDto(item);
+			products.setCategoryName(item.getCategory().getCategoryName().toString());
+			models.add(products);
+		}
+		return models;
+	}
+
 
 }

@@ -3,6 +3,7 @@ package com.bugshop.controller.admin;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,12 +99,34 @@ public class ProductController {
 		return redirectView;
 	}
 	@GetMapping(value = "/admin/product/delete")
-	public RedirectView deleteCate(@RequestParam(value = "id", required = false) Long id) {
+	public RedirectView deleteCate(@RequestParam(value = "id", required = true) Long id) {
 
 		iProductService.delete(id);
 		RedirectView redirectView = new RedirectView();
 		redirectView.setUrl("/bugshop/admin/product");
 		return redirectView;
+	}
+	
+	
+	@GetMapping(value = "/admin/product/activestatus")
+	public String activeS(@RequestParam(value = "id", required = true) Long id, HttpServletRequest request) {
+		iProductService.activeStatus(id);
+		return "redirect:" + request.getHeader("Referer");
+	}
+	@GetMapping(value = "/admin/product/unactivestatus")
+	public String unactiveS(@RequestParam(value = "id", required = true) Long id, HttpServletRequest request) {
+		iProductService.unactiveStatus(id);
+		return "redirect:" + request.getHeader("Referer");
+	}
+	@GetMapping(value = "/admin/product/activehighlights")
+	public String activeH(@RequestParam(value = "id", required = true) Long id, HttpServletRequest request) {
+		iProductService.activeHighlights(id);
+		return "redirect:" + request.getHeader("Referer");
+	}
+	@GetMapping(value = "/admin/product/unactivehighlights")
+	public String unactiveH(@RequestParam(value = "id", required = true) Long id, HttpServletRequest request) {
+		iProductService.unactiveHighlights(id);
+		return "redirect:" + request.getHeader("Referer");
 	}
 
 }
