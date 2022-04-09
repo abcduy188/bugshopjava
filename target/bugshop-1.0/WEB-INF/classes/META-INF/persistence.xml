@@ -10,6 +10,7 @@
 	<class>com.bugshop.entity.UserEntity</class>
 	<class>com.bugshop.entity.ProductEntity</class>
 	<class>com.bugshop.entity.OrderEntity</class>
+	<class>com.bugshop.entity.SlidesEntity</class>
 	</persistence-unit>
 </persistence>
 

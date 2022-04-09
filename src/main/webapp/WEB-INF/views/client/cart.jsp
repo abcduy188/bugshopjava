@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<div class="check">
+<div class="check" style="padding-top: 120px;">
 	<div class="container">
 
 		<div class="col-md-3 cart-total">
@@ -59,7 +59,7 @@
 												id="quantity-cart-${item.key }">
 										</p>
 										<button onclick="EditQuantityCart();" data-id="${item.key }"
-											type="button" class="btn btn-default editcart">Edit</button>
+											type="button" class="btn btn-warning editcart"style="font-size: 16px;">Edit</button>
 									</li>
 									<li>
 										<p>

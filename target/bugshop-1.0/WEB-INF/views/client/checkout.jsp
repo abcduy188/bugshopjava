@@ -8,37 +8,38 @@
 	<div class="col-md-6 reg-form">
 		<div class="container">
 			<div class="reg" >
-				 <form action="{{ URL::to('/confirm-order') }}" method="POST">
+				 <form:form action="checkout" method="POST" modelAttribute="user">
+				 <form:hidden path="customer_id"/>
 					<ul>
 						<li class="text-info">Email </li>
-						<li><input type="text" name="ship_email" class="ship_email" value=""></li>
+						<li><form:input type="text" name="ship_email" class="ship_email" path="shipping_email"/></li>
 					</ul>
 					<ul>
 						<li class="text-info">Họ tên người nhận: </li>
-						<li><input type="text"name="ship_name" class="ship_name"value=""></li>
+						<li><form:input type="text" class="ship_name" path="shipping_name"/></li>
 					 </ul>
                      <ul>
 						<li class="text-info">Số điện thoại: </li>
-						<li><input type="text"name="ship_phone"class="ship_phone" value=""></li>
+						<li><form:input type="text" class="ship_phone" path="shipping_phone"/></li>
 					</ul>				 
 					<ul>
 						<li class="text-info">Địa chỉ nhận hàng: </li>
-						<li><input type="text"name="ship_address"class="ship_address" value=""></li>
+						<li><form:input type="text" class="ship_address" path="shipping_address"/></li>
 					</ul>
 				
 					<ul>
 						<li class="text-info">Ghi chú thêm:</li>
-						<li><input type="text"name="ship_note"class="ship_note" value=""></li>
+						<li><form:input type="text" class="ship_note" path="order_note"/></li>
 					</ul>
                     <ul>
                         <li class="text-info">Chọn hình thức</li>
-                        <select name="payment_option" class="payment_option">
-                            <option value="0"> Paypal</option>
-                            <option value="1" selected> Tiền mặt</option>
-                        </select>
+                        <form:select path="shipping_type" >
+                           <form:option value="0" label="Tiền mặt"/>  
+                           <form:option value="1" label="Thanh toán"/>  
+                        </form:select>
                     </ul>					
 					<input type="submit" class="send_order" value="Xác nhận đặt hàng">
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>
@@ -64,60 +65,65 @@
 			<a class="order" href="#">Đặt hàng</a>
 		</div>
 		<div class="col-md-9 cart-items">
-			<h1>Giỏ hàng của tôi ( )</h1>
-			<form action="" method="POST">
+			<h1>Giỏ hàng của tôi</h1>
 
-				<div class="cart-header" id="class-product-{{$item['session_id']}}">
-					<div class="close1" data-id="{{ $item['session_id'] }}">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"><a
-							href="{{ url('/del-cart-ajax/' .$item['session_id']) }}"></a> </span>
-					</div>
-					<div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							<img src="{{ $item['product_image'] }}" class="img-responsive"
-								alt="" />
+			<c:if test="${Cart != null || Cart.size() != 0}">
+				<c:forEach var="item" items="${Cart }">
+					<div class="cart-header">
+						<div class="close1"
+							data-id="<c:url value='/delete-cart/${item.key }'/>">
+
+							<span class="glyphicon glyphicon-remove" aria-hidden="true"><a
+								href='#'></a> </span>
 						</div>
-						<div class="cart-item-info">
-							<ul class="qty">
-								<li>
-									<p>Name</p>
-								</li>
-								<li>
-
-									<p>
-										Số lượng :<input type="number" value="1"
-											style="width: 50px; text-align: center" min="1">
-									</p>
-								</li>
-								<li>
-									<p>Tổng cộng : VND</p>
-								</li>
-							</ul>
-							<div class="delivery">
-								<p>Service Charges : Rs.190.00</p>
-								<span>Delivered in 2-3 bussiness days</span>
-								<div class="clearfix"></div>
+						<div class="cart-sec simpleCart_shelfItem">
+							<div class="cart-item cyc">
+								<img src="${item.value.products.image }" class="img-responsive"
+									alt="" />
 							</div>
+							<div class="cart-item-info">
+								<ul class="qty">
+									<li>
+										<p>${item.value.products.name }</p>
+									</li>
+									<li>
+										<p>
+											Số lượng :<input type="number"
+												value="${item.value.quantity }"
+												style="width: 50px; text-align: center" min="1"
+												id="quantity-cart-${item.key }">
+										</p>
+										<button onclick="EditQuantityCart();" data-id="${item.key }"
+											type="button" class="btn btn-default editcart">Edit</button>
+									</li>
+									<li>
+										<p>
+											Tổng cộng :
+											<fmt:formatNumber
+												value="${item.value.products.promotionPrice * item.value.quantity }"
+												type="currency" currencySymbol="VND" currencyCode="VND" />
+										</p>
+									</li>
+								</ul>
+							</div>
+							<div class="clearfix"></div>
+
 						</div>
-						<div class="clearfix"></div>
-
 					</div>
-				</div>
+				</c:forEach>
+			</c:if>
+			<c:if test="${Cart == null || Cart.size() == 0 }">
+				Giỏ hàng trống, vui lòng mua gì đó
+				<a class="order" href="<c:url value='/trang-chu' />">Buy sth</a>
+			</c:if>
 
-				<div class="cart-header">
-					<div class="cart-sec simpleCart_shelfItem">
-						<input type="submit" id="btn_update_qty"
-							class="btn btn-default btn-sm" value="Cập nhật giỏ hàng"
-							name="update_qty" style="background: black; color: white;"
-							onmouseover="this.style.color='red'"> <a class="order"
-							href="{{ url('/delete-all-cart') }}">Xóa tất cả</a>
-					</div>
-				</div>
-			</form>
 
 
 		</div>
-		
+
+
+
+		<div class="clearfix"></div>
 		<div class="col-md-3 cart-total">
 
 

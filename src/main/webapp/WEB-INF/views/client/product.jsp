@@ -8,12 +8,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<div class="showcase-grid">
+<div class="showcase-grid" style="padding-top: 120px;">
 
 
 	<div class="container">
 		<div class="col-md-8 showcase">
-			<div class="flexslider">
+			<div class="flexslider" style="width: 50%;">
 				<ul class="slides">
 					<li data-thumb="${productlist.image}">
 						<div class="thumb-image">
@@ -68,61 +68,56 @@
 				</ul>
 
 			</div>
+			<table class="table table-user-information" style="font-size: 14px;">
+                <tbody>
+                    <tr>        
+                        <td>
+                            <strong>
+                               RAM                                             
+                            </strong>
+                        </td>
+                        <td>
+                            4GB 
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                            <strong>
+                                CPU                                                
+                            </strong>
+                        </td>
+                        <td>
+                          8GB
+                        </td>
+                    </tr>
+                    <tr>        
+                        <td>
+                            <strong>
+                              Để Đại                                                
+                            </strong>
+                        </td>
+                        <td>
+                           4GB  
+                        </td>
+                    </tr>
+
+                    <tr>        
+                        <td>
+                            <strong>
+                                Không Biết
+                            </strong>
+                        </td>
+                        <td>
+                           12GB 
+                        </td>
+                    </tr>                                  
+                </tbody>
+            </table>
 		</div>
 		<div class="clearfix"></div>
 	</div>
 </div>
-<div class="specifications">
-	<div class="container">
-		<h3>Item Details</h3>
-		<div class="detai-tabs">
-			<!-- Nav tabs -->
-			<ul class="nav nav-pills tab-nike" role="tablist">
-				<li role="presentation" class="active"><a href="#home"
-					aria-controls="home" role="tab" data-toggle="tab">Highlights</a></li>
-				<li role="presentation"><a href="#profile"
-					aria-controls="profile" role="tab" data-toggle="tab">Description</a></li>
-				<li role="presentation"><a href="#messages"
-					aria-controls="messages" role="tab" data-toggle="tab">Terms &
-						conditiona</a></li>
-			</ul>
 
-			<!-- Tab panes -->
-			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="home">
-					<p>${productlist.cpu}</p>
-					<p>${productlist.vga}</p>
-					<p>${productlist.ram}</p>
-					<p>${productlist.monitor}</p>
-				</div>
-				<div role="tabpanel" class="tab-pane" id="profile">
-					<p>Nike is one of the leading manufacturer and supplier of
-						sports equipment, footwear and apparels. Nike is a global brand
-						and it continuously creates products using high technology and
-						design innovation. Nike has a vast collection of sports shoes for
-						men at Snapdeal. You can explore our range of basketball shoes,
-						football shoes, cricket shoes, tennis shoes, running shoes, daily
-						shoes or lifestyle shoes. Take your pick from an array of sports
-						shoes in vibrant colours like red, yellow, green, blue, brown,
-						black, grey, olive, pink, beige and white. Designed for top
-						performance, these shoes match the way you play or run. Available
-						in materials like leather, canvas, suede leather, faux leather,
-						mesh etc, these shoes are lightweight, comfortable, sturdy and
-						extremely sporty. The sole of all Nike shoes is designed to
-						provide an increased amount of comfort and the material is good
-						enough to provide an improved fit. These shoes are easy to
-						maintain and last for a really long time given to their
-						durability. Buy Nike shoes for men online with us at some
-						unbelievable discounts and great prices. So get faster and run
-						farther with your Nike shoes and track how hard you can play.</p>
-				</div>
-				<div role="tabpanel" class="tab-pane" id="messages">The images
-					represent actual product though color of the image and product may
-					slightly differ.</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 <div class="you-might-like">
 	<div class="container">

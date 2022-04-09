@@ -21,24 +21,7 @@
 								class="img-responsive" style="height: 400px; width: auto">
 						</div>
 					</li>
-					<%-- <li data-thumb="${productlist.image}">
-						<div class="thumb-image">
-							<img src="${productlist.image}" data-imagezoom="true"
-								class="img-responsive" style="height: 400px; width: auto">
-						</div>
-					</li>
-					<li data-thumb="/template/client/images/show2.jpg">
-						<div class="thumb-image">
-							<img src="images/show2.jpg" data-imagezoom="true"
-								class="img-responsive" style="height: 400px; width: auto">
-						</div>
-					</li>
-					<li data-thumb="/template/client/images/show3.jpg">
-						<div class="thumb-image">
-							<img src="images/show3.jpg" data-imagezoom="true"
-								class="img-responsive" style="height: 400px; width: auto">
-						</div>
-					</li> --%>
+				
 				</ul>
 				<div class="clearfix"></div>
 			</div>
@@ -107,11 +90,10 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="home">
-					<p>The full-length Max Air unit delivers excellent cushioning
-						with enhanced flexibility for smoother transitions through
-						footstrike.</p>
-					<p>Dynamic Flywire cables integrate with the laces and wrap
-						your midfoot for a truly adaptive, supportive fit.</p>
+					<p>${productlist.cpu}</p>
+					<p>${productlist.vga}</p>
+					<p>${productlist.ram}</p>
+					<p>${productlist.monitor}</p>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="profile">
 					<p>Nike is one of the leading manufacturer and supplier of
