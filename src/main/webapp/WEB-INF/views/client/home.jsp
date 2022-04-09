@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/views/common/taglib.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <body>
-	<div class="header-end">
+	<div class="header-end" style="padding-top: 100px;">
 		<div class="container">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
@@ -14,7 +14,7 @@
 				</ol>
 
 				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
+				<div class="carousel-inner" role="listbox" style="height: 350px;">
 					<%
 					int i = 0;
 					%>
@@ -135,17 +135,6 @@
 
 
 			<div class="clearfix"></div>
-		</div>
-	</div>
-	<div class="sub-news">
-		<div class="container">
-			<form>
-				<h3>NewsLetter</h3>
-				<input type="text" class="sub-email" value="Email"
-					onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = 'Email';}"> <a
-					class="btn btn-default subs-btn" href="#" role="button">SUBSCRIBE</a>
-			</form>
 		</div>
 	</div>
 

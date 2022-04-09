@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Tìm kiếm</title>
 </head>
-<div class="container">
+<div class="container" style="padding-top: 120px;">
 	<div class="col-md-12 grid-gallery">
 		<c:forEach var="item" items="${productlist.listResult}">
 			<div class="col-md-4 grid-stn simpleCart_shelfItem">
