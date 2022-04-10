@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Sản phẩm</title>
 </head>
-<div class="container">
+<div class="container" style="padding-top: 100px;">
 	<div class="col-md-12 grid-gallery">
 		<c:forEach var="item" items="${model}">
 			<div class="col-md-4 grid-stn simpleCart_shelfItem">
@@ -51,14 +51,50 @@
 
 
 
-
 		<div class="clearfix"></div>
 	</div>
+	
+		<style>
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.button1 {
+	border-radius: 2px;
+}
+
+.button2 {
+	border-radius: 4px;
+}
+
+.button3 {
+	border-radius: 8px;
+}
+
+.button4 {
+	border-radius: 12px;
+}
+
+.button5 {
+	border-radius: 50%;
+}
+</style>
 	<div>
-<h4>Total Items: ${totalItems} - Page:  ${currentPage } of ${totalPages }</h4>
-<c:forEach begin="1" end="${totalPages }" var="i">
-<c:url var="page" value="/san-pham?page=${i}" ></c:url>
-  	<a href="${page}">${i }</a>
-</c:forEach>
-</div>
+		<h4>Total Items: ${totalItems} - Page: ${currentPage } of
+			${totalPages }</h4>
+		<c:forEach begin="1" end="${totalPages }" var="i">
+			<c:url var="page" value="/san-pham?page=${i}"></c:url>
+			<a href="${page}" class="button button1">${i }</a>
+		</c:forEach>
+	</div>
 </div>

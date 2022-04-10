@@ -11,7 +11,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="template/login/images/logodc2.png" alt="IMG"  href="<c:url value='/trang-chu' />">
+					<img src="template/login/images/logo.png" alt="IMG"  href="<c:url value='/trang-chu' />">
 				</div>
 				
 				<form action="j_spring_security_check" id="formLogin" method="post">

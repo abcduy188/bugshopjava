@@ -53,11 +53,30 @@ public class UserEntity{
 	private String Name;
 	@Column
 	private int status;
+	@Column(name = "Address", columnDefinition = "nvarchar(250)")
+	private String Address;
+	@Column(name = "Phone", columnDefinition = "nvarchar(11)")
+	private String Phone;
 	
 	
 	
 	//lazy : co list load tu bang role, chi load khi dc goi ra
 	
+	public String getPhone() {
+		return Phone;
+	}
+	public void setPhone(String phone) {
+		Phone = phone;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	//tao khoa ngoai n-n
 	@ManyToMany(fetch= FetchType.LAZY)
 	@JoinTable(name = "roles_user", joinColumns = @JoinColumn(name = "user_id"),
