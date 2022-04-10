@@ -1,8 +1,5 @@
 package com.bugshop.converter;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
@@ -52,6 +49,7 @@ public class OrderConverter {
 		result.setOrder_note(dto.getOrder_note());
 		result.setShipping_type(dto.getShipping_type());
 		result.setUser(user);
+		result.setStatus(1);
 		return result;
 	}
 }

@@ -56,8 +56,7 @@
 			<div class="shocase-rt-bot">
 				<ul>
 					<li class="ad-2-crt simpleCart_shelfItem"><a
-						class="btn item_add" href="<c:url value='/add-cart/${productlist.iD}'/>" role="button">Add To Cart</a> <a
-						class="btn" href="#" role="button">Buy Now</a></li>
+						class="btn item_add" href="<c:url value='/add-cart/${productlist.iD}'/>" role="button">Add To Cart</a> </li>
 				</ul>
 			</div>
 			<div class="showcase-last">

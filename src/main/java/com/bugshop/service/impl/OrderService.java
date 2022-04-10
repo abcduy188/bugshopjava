@@ -1,8 +1,11 @@
 package com.bugshop.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,6 +74,44 @@ public class OrderService implements IOrderService {
 
 	    // this will convert any number sequence into 6 character.
 	    return String.format("%05d", number);
+	}
+
+	@Override
+	public List<OrderEntity> findByUser(Long id) {
+		List<OrderEntity> entities = orderRepository.findByUser(id);
+		return entities;
+	}
+
+	@Override
+	public List<OrderDetailEntity> findByOrder(Long id) {
+		
+		return orderDetailRepository.findByOrder(id);
+	}
+
+	@Override
+	public OrderEntity findOne(Long id) {
+		
+		return orderRepository.findOne(id);
+	}
+
+	@Override
+	public List<OrderEntity> findAll() {
+		// TODO Auto-generated method stub
+		return orderRepository.findAll();
+	}
+
+	@Override
+	@Transactional
+	public void accept(Long id) {
+		orderRepository.acceptOrder(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public void cancel(Long id) {
+		orderRepository.cancelOrder(id);
+		
 	}
 	
 }

@@ -23,13 +23,13 @@ public class OrderEntity {
 
 	@Column(name = "CreateDate")
 	@CreatedDate
-	private Date CreateDate;
+	private Date createDate;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	private UserEntity user;
 	@Column(name = "order_status")
-	private int Status;
+	private int status;
 	@Column(name = "shipping_name", columnDefinition = "nvarchar(255)")
 	private String shipping_name;
 	@Column(name = "shipping_email", columnDefinition = "nvarchar(255)")
@@ -46,11 +46,11 @@ public class OrderEntity {
 	private String shipping_phone;
 
 	public Date getCreateDate() {
-		return CreateDate;
+		return createDate;
 	}
 
 	public void setCreateDate(Date createDate) {
-		CreateDate = createDate;
+		this.createDate = createDate;
 	}
 
 	public UserEntity getUser() {
@@ -62,11 +62,11 @@ public class OrderEntity {
 	}
 
 	public int getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(int status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public String getShipping_name() {

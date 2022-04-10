@@ -34,8 +34,8 @@
                     <ul>
                         <li class="text-info">Chọn hình thức</li>
                         <form:select path="shipping_type" >
-                           <form:option value="0" label="Tiền mặt"/>  
-                           <form:option value="1" label="Thanh toán"/>  
+                           <form:option value="1" label="Tiền mặt"/>  
+                           <form:option value="0" label="Thanh toán"/>  
                         </form:select>
                     </ul>					
 					<input type="submit" class="send_order" value="Xác nhận đặt hàng">

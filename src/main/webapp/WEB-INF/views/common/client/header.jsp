@@ -27,6 +27,9 @@
 
 			<div class="collapse navbar-collapse" id="movieNavbar">
 				<ul class="navbar-nav mr-auto ml-auto">
+				<li class="dropdown"><a
+							href='<c:url value='/san-pham?page=1'>
+										</c:url>'>Sản phẩm</a></li>
 					<c:forEach var="item" items="${catelist.listResult}">
 						<li class="dropdown"><a
 							href='<c:url value='/danh-muc'>
@@ -71,7 +74,12 @@
 			</security:authorize>
 			<security:authorize access="isAuthenticated()">
 				<div class="login-bars">
-					<a class="btn btn-success log-bar" href="register.html"
+					<%! Long id = SecurityUtils.getPrincipal().getId(); %>
+					<c:url var="infouser"
+											value="/thong-tin">
+											<c:param name="id"><%=SecurityUtils.getPrincipal().getId()%></c:param>
+										</c:url>
+					<a class="btn btn-success log-bar" href="${infouser}"
 						role="button">Welcome <%=SecurityUtils.getPrincipal().getName()%></a>
 					<a class="btn btn-default log-bar" href="<c:url value='/thoat' />"
 						role="button" style="color: blue;background: border-box;border: 0.5px solid;">Logout</a>

@@ -33,7 +33,6 @@ public class UserService implements IUserService {
 	UserRepository userRepository;
 	@Autowired 
 	RoleRepository roleRepository;
-	
 	@Autowired 
 	UserConverter userConverter;
 	@Override
@@ -74,6 +73,25 @@ public class UserService implements IUserService {
 	        return user;
 	    
 	}
-	
+	@Override
+	public UserDTO user(Long id) {
+		UserDTO user = userConverter.toDto(userRepository.findOne(id));
+		
+		return user;
+	}
+	@Override
+	public int save(UserDTO userDTO) {
+		UserEntity entity = new UserEntity();
+		if(userDTO.getiD()!= null)
+		{
+			UserEntity oldUser = userRepository.findOne(userDTO.getiD());
+			entity = userConverter.toEntity(oldUser, userDTO);
+			userRepository.save(entity);
+			return 1;
+			
+		}
+		
+		return -1;
+	}
 		
 }
