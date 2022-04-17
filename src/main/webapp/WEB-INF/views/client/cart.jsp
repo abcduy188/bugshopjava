@@ -23,7 +23,7 @@
 
 				<li class="last_price"><span><fmt:formatNumber
 							value="${TotalP}" type="currency" currencySymbol="VND"
-							currencyCode="VND" /></span></li>
+							currencyCode="VND" maxFractionDigits = "0"/></span></li>
 				<div class="clearfix"></div>
 			</ul>
 			<div class="clearfix"></div>
@@ -59,14 +59,14 @@
 												id="quantity-cart-${item.key }">
 										</p>
 										<button onclick="EditQuantityCart();" data-id="${item.key }"
-											type="button" class="btn btn-warning editcart"style="font-size: 16px;">Edit</button>
+											type="button" class="btn btn-warning editcart"style="font-size: 16px;">Cập nhật</button>
 									</li>
 									<li>
 										<p>
 											Tổng cộng :
 											<fmt:formatNumber
 												value="${item.value.products.promotionPrice * item.value.quantity }"
-												type="currency" currencySymbol="VND" currencyCode="VND" />
+												type="currency" currencySymbol="VND" maxFractionDigits = "0" currencyCode="VND" />
 										</p>
 									</li>
 								</ul>

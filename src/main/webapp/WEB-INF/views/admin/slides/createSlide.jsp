@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/common/taglib.jsp"%>
-<c:url var="api" value="/admin/slides/edit" />
+<c:url var="api" value="/admin/slides/create" />
 <div class="container-fluid">
 	<div class="card">
 		<div class="card-body">
@@ -16,7 +16,7 @@
 				</div>
 				<div class="form-group">
 					<label for="input-2">desc</label>
-					<form:input path="slide_name" type="text" class="form-control"/>
+					<form:input path="slide_desc" type="text" class="form-control"/>
 				</div>
 				<div class="form-group">
 					<label for="input-3">Image</label>

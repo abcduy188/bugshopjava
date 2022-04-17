@@ -79,14 +79,28 @@
 			</div>
 		</div></li>
 	<li class="nav-item"><a class="nav-link collapsed" href="#"
-		data-toggle="collapse" data-target="#collapseuser" aria-expanded="true"
-		aria-controls="collapseuser"> <i class="fas fa-fw fa-cog"></i> <span>Người dùng</span>
+		data-toggle="collapse" data-target="#collapseuser"
+		aria-expanded="true" aria-controls="collapseuser"> <i
+			class="fas fa-fw fa-cog"></i> <span>Người dùng</span>
 	</a>
 		<div id="collapseuser" class="collapse" aria-labelledby="headingTwo"
 			data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href='<c:url value='/admin/user'/>'>Danh
 					sách người dùng</a>
+			</div>
+		</div></li>
+	<li class="nav-item"><a class="nav-link collapsed" href="#"
+		data-toggle="collapse" data-target="#collapseslide"
+		aria-expanded="true" aria-controls="collapseslide"> <i
+			class="fas fa-fw fa-cog"></i> <span>Slides</span>
+	</a>
+		<div id="collapseslide" class="collapse" aria-labelledby="headingTwo"
+			data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href='<c:url value='/admin/slides'/>'>Danh
+					sách slide</a>
+						<a class="collapse-item" href='<c:url value='/admin/slides/create'/>'>Thêm slide</a>
 			</div>
 		</div></li>
 

@@ -55,17 +55,18 @@ public class ProductController {
 	public RedirectView createCate(@ModelAttribute("model") ProductDTO productDTO) throws IOException {
 
 		byte[] image = productDTO.getImagefile().getBytes();
+		RedirectView redirectView = new RedirectView();
+		redirectView.setUrl("/bugshop/admin/product");
 		if (image != null) { 
 			Map r = this.cloudinary.uploader().upload(image,
 					ObjectUtils.asMap("resource_type", "auto"));
 			productDTO.setImage((String) r.get("secure_url"));
 		} else {
-
+			return redirectView;
 		}
 
 		int result = iProductService.save(productDTO);
-		RedirectView redirectView = new RedirectView();
-		redirectView.setUrl("/bugshop/admin/product");
+		
 		return redirectView;
 	}
 	

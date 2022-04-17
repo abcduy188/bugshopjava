@@ -56,11 +56,11 @@
 			<div class="shocase-rt-bot">
 				<ul>
 					<li class="ad-2-crt simpleCart_shelfItem"><a
-						class="btn item_add" href="<c:url value='/add-cart/${productlist.iD}'/>" role="button">Add To Cart</a> </li>
+						class="btn item_add" href="<c:url value='/add-cart/${productlist.iD}'/>" role="button">Thêm vào giỏ hàng</a> </li>
 				</ul>
 			</div>
 			<div class="showcase-last">
-				<h3>product details</h3>
+				<h3>Chi tiết sản phẩm</h3>
 				<ul>
 					<li>${ productlist.description }</li>
 
@@ -72,11 +72,11 @@
                     <tr>        
                         <td>
                             <strong>
-                               RAM                                             
+                               VGA                                             
                             </strong>
                         </td>
                         <td>
-                            4GB 
+                            GTX
                         </td>
                     </tr>
                     <tr>    
@@ -86,13 +86,13 @@
                             </strong>
                         </td>
                         <td>
-                          8GB
+                          Intel i5-10300H
                         </td>
                     </tr>
                     <tr>        
                         <td>
                             <strong>
-                              Để Đại                                                
+                              RAM                                               
                             </strong>
                         </td>
                         <td>
@@ -103,11 +103,11 @@
                     <tr>        
                         <td>
                             <strong>
-                                Không Biết
+                                TRọng lượng
                             </strong>
                         </td>
                         <td>
-                           12GB 
+                           2,3kg 
                         </td>
                     </tr>                                  
                 </tbody>

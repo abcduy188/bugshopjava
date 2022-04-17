@@ -26,7 +26,11 @@ public class SlideConverter {
 	}
 	public SlidesEntity toEntity(SlidesEntity result, SlideDTO dto) {
 		result.setSlide_name(dto.getSlide_name());
-		result.setSlide_image(dto.getSlide_image());
+		if(dto.getSlide_image()!= null)
+		{
+			result.setSlide_image(dto.getSlide_image());
+		}
+		
 		result.setSlide_desc(dto.getSlide_desc());
 		return result;
 	}

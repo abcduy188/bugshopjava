@@ -73,7 +73,7 @@ public class HomeController {
 	public String allCate(@RequestParam(value = "page", required = false) int pageNumber, Model model) {
 		Page<ProductEntity> page = iProductService.listEntity(pageNumber);
 		long totalItems = page.getTotalElements();
-		int totalPages = page.getTotalPages();
+		int totalPages = page.getTotalPages(); //3
 		CategoryDTO cate = new CategoryDTO();
 		cate.setListResult(iCategoryService.listactive());
 		List<ProductEntity> listProducts = page.getContent();

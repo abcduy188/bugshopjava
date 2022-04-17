@@ -6,10 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+.closebtn:hover {
+	color: black;
+}
+</style>
 </head>
 <body>
 	<section class="vh-100" style="background-color: #eee;">
 		<div class="container h-100">
+
 			<div
 				class="row d-flex justify-content-center align-items-center h-100">
 				<div class="col-lg-12 col-xl-11">
@@ -18,6 +25,17 @@
 							<div class="row justify-content-center">
 								<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
+									<div>
+										<c:if test="${message != null }">
+											<div class="alert"
+												style="padding: 20px; background-color: #f44336; color: white;">
+												<span class="closebtn"
+													style="margin-left: 15px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer; transition: 0.3s;"
+													onclick="this.parentElement.style.display='none';">&times;</span>
+												<strong>Danger!</strong> ${message}
+											</div>
+										</c:if>
+									</div>
 									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign
 										up</p>
 									<c:url value="/dang-ky" var="action" />
@@ -30,7 +48,8 @@
 												<label class="form-label" for="form3Example1c">Your
 													Name</label>
 												<form:input path="name" name="name" type="text"
-													id="form3Example1c" class="form-control" required="required" />
+													id="form3Example1c" class="form-control"
+													required="required" />
 
 											</div>
 										</div>
@@ -41,7 +60,7 @@
 												<label class="form-label" for="form3Example3c">Your
 													Email</label>
 												<form:input path="email" type="email" id="form3Example3c"
-													class="form-control"  required="required"/>
+													class="form-control" required="required" />
 
 											</div>
 										</div>
@@ -50,8 +69,9 @@
 											<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 											<div class="form-outline flex-fill mb-0">
 												<label class="form-label" for="form3Example4c">Password</label>
-												<form:input path="password" name="password" id="password" minlength="6"
-													type="password" onkeyup='check();' class="form-control" required="required"/>
+												<form:input path="password" name="password" id="password"
+													minlength="6" type="password" onkeyup='check();'
+													class="form-control" required="required" />
 
 											</div>
 										</div>
@@ -62,15 +82,17 @@
 												<label class="form-label" for="form3Example4cd">Repeat
 													your password</label> <input type="password"
 													name="confirm_password" id="confirm_password"
-													onkeyup='check();' class="form-control" required="required"/> <span
-													id='message'></span>
+													onkeyup='check();' class="form-control" required="required" />
+												<span id='message'></span>
 											</div>
 										</div>
 
-										
 
-										<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4" style="margin-top:10px">
-											<input type="submit" id="btn" class="btn btn-primary btn-lg" disabled="disabled"/>
+
+										<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"
+											style="margin-top: 10px">
+											<input type="submit" id="btn" class="btn btn-primary btn-lg"
+												disabled="disabled" />
 										</div>
 
 									</form:form>
@@ -97,7 +119,7 @@
 					.getElementById('confirm_password').value) {
 				document.getElementById('message').style.color = 'green';
 				document.getElementById('message').innerHTML = 'matching';
-				document.getElementById('btn').disabled =false;
+				document.getElementById('btn').disabled = false;
 			} else {
 				document.getElementById('message').style.color = 'red';
 				document.getElementById('message').innerHTML = 'not matching';

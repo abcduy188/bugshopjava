@@ -43,14 +43,14 @@
 			</div>
 		</div>
 	</div>
-		<div class="col-md-3 cart-total">
-			<a class="continue" href="#">Tiếp tục mua hàng</a>
+	<div class="col-md-3 cart-total">
+			<a class="continue" href='<c:url value='/trang-chu'/>'>Tiếp tục mua hàng</a>
 			<div class="price-details">
 				<h3>Price Details</h3>
-				<span>Tổng tiền</span> <span class="total1">VND</span> <span>Discount</span>
-				<span class="total1">10%(Festival Offer)</span> <span>Delivery
-					Charges</span> <span class="total1">150.00</span>
-				<div class="clearfix"></div>
+				<span>Tổng tiền</span> <span class="total1"><fmt:formatNumber
+						value="${TotalP}" type="currency" currencySymbol="VND"
+						currencyCode="VND" /></span>
+
 			</div>
 			<hr class="featurette-divider">
 			<ul class="total_price">
@@ -58,11 +58,12 @@
 					<h4>TOTAL</h4>
 				</li>
 
-				<li class="last_price"><span>VND</span></li>
+				<li class="last_price"><span><fmt:formatNumber
+							value="${TotalP}" type="currency" currencySymbol="VND"
+							currencyCode="VND" maxFractionDigits = "0"/></span></li>
 				<div class="clearfix"></div>
 			</ul>
 			<div class="clearfix"></div>
-			<a class="order" href="#">Đặt hàng</a>
 		</div>
 		<div class="col-md-9 cart-items">
 			<h1>Giỏ hàng của tôi</h1>
